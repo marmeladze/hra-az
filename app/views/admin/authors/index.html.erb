@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Authors</h1>
+
+<%= link_to 'New Author', new_admin_author_path, class: "btn btn-success" %>
+
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.image %></td>
+        <td><%= link_to 'Edit', edit_admin_author_path(author) %></td>
+        <td><%= link_to 'Destroy', [:admin, author], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

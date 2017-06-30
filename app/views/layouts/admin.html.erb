@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hra</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <nav class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Səhifələr", admin_pages_path %></li>
+          <li><%= link_to "Yazılar", admin_articles_path %></li>
+          <li><%= link_to "Müəlliflər", admin_authors_path %></li>
+          <li><%= link_to "Bölmələr", admin_authors_path %></li>
+          <li><%= link_to "Qərarnamələr/Qətnamələr", admin_documents_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>
