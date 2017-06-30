@@ -1,4 +1,5 @@
 class Admin::PagesController < ApplicationController
+  http_basic_authenticate_with name: "admin", password: "geometry123"
   before_action :set_page, only: [:edit, :update, :destroy]
 
   layout "admin"

@@ -1,6 +1,8 @@
 class Admin::ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :update, :destroy]
+  http_basic_authenticate_with name: "admin", password: "geometry123"
 
+  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_related, only: [:edit, :new]
   layout "admin"
 
   def index
@@ -38,7 +40,11 @@ class Admin::ArticlesController < ApplicationController
   end
 
   private
-
+    def set_related
+      @authors = Author.pluck(:name, :id)
+      @categories = Category.pluck(:name, :id)
+    end
+    
     def set_article
       @article = Article.find(params[:id])
     end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+root 'home#index'
+
+get "/admin" => 'admin/pages#index'
+
 namespace :admin do 
   resources :pages
   resources :articles

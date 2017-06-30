@@ -1,4 +1,5 @@
 class Admin::AuthorsController < ApplicationController
+  http_basic_authenticate_with name: "admin", password: "geometry123"
   before_action :set_author, only: [:edit, :update, :destroy]
 
   layout "admin"
