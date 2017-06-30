@@ -19,7 +19,7 @@
     <%= f.label :image %><br>
     <%= f.hidden_field :image_cache %>    
     <%= f.file_field :image %>
-    <%= image_tag(@author.image_url, height: '50', width: '50') if @author.image? %>
+    <%= cl_image_tag(@author.image_url, :width => 50, :height => 50, :crop => :fill) if @author.image? %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -19,7 +19,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
-        <td><%= article.image %></td>
+        <td><%= cl_image_tag(article.image, :width => 50, :height => 50, :crop => :fill) %></td>
         <td><%= article.author.name %></td>
         <td><%= article.category.name %></td>
         <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
