@@ -1,4 +1,5 @@
-<%= form_for [:admin, @article] do |f| %>
+<div class="well">
+<%= form_for [:admin, @article], html: { onsubmit: "attachContent()" } do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -37,3 +38,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+<script type="text/javascript">
+  attachContent = function() {
+    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+  }  
+</script>
+<script type="text/javascript">
+window.onload = function() {
+  if (window.location.pathname.includes("/edit")) {
+    var tv = document.querySelector("textarea").value;
+    document.querySelector(".Editor-editor").innerHTML = tv ;  
+  }    
+}
+</script>
