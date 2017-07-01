@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630233827) do
+ActiveRecord::Schema.define(version: 20170701134859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 20170630233827) do
     t.string   "organization"
     t.text     "url_az"
     t.text     "url_en"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "deleted",      default: false
   end
 
   create_table "pages", force: :cascade do |t|
