@@ -1,12 +1,12 @@
 class Admin::ArticlesController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "geometry123"
 
-  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy, :remove]
   before_action :set_related, only: [:edit, :new]
   layout "admin"
 
   def index
-    @articles = Article.all
+    @articles = Article.living
   end
 
   def new
@@ -36,13 +36,18 @@ class Admin::ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to admin_articles_path, notice: 'Article was successfully destroyed.'
+  end
+
+  def remove
+    @article.remove!
+    redirect_to admin_articles_path, notice: 'Article was successfully deleted.'
   end
 
   private
     def set_related
       @authors = Author.pluck(:name, :id)
-      @categories = Category.pluck(:name, :id)
+      @categories = Category.pluck(:name, :id, :deleted)
     end
     
     def set_article

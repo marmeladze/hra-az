@@ -20,7 +20,7 @@
         <td><%= author.name %></td>
         <td><%= cl_image_tag(author.image, :width => 50, :height => 50, :crop => :fill) %></td>
         <td><%= link_to 'Edit', edit_admin_author_path(author) %></td>
-        <td><%= link_to 'Destroy', [:admin, author], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', remove_admin_author_path(author), method: :put, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

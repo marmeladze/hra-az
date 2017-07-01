@@ -1,11 +1,11 @@
 class Admin::DocumentsController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "geometry123"
-  before_action :set_document, only: [:edit, :update, :destroy]
+  before_action :set_document, only: [:edit, :update, :destroy, :remove]
 
   layout "admin"
 
   def index
-    @documents = Document.all
+    @documents = Document.living
   end
 
   def new
@@ -37,12 +37,17 @@ class Admin::DocumentsController < ApplicationController
     redirect_to admin_documents_path, notice: 'document was successfully destroyed.'
   end
 
+  def remove
+    @document.remove!
+    redirect_to admin_documents_path, notice: 'Document was successfully deleted.'
+  end
+
   private
     def set_document
       @document = Document.find(params[:id])
     end
 
     def document_params
-      params.require(:document).permit(:abbr, :title, :found, :organization, :url_az, :url_en)
+      params.require(:document).permit(:abbr, :title, :found, :organization, :url_az, :url_en, :deleted)
     end
 end

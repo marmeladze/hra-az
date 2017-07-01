@@ -23,7 +23,7 @@
         <td><%= article.author.name %></td>
         <td><%= article.category.name %></td>
         <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-        <td><%= link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', remove_admin_article_path(article), method: :put, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

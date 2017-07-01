@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630194022) do
+ActiveRecord::Schema.define(version: 20170630233827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20170630194022) do
     t.text     "body"
     t.integer  "author_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "deleted",     default: false
   end
 
   add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
@@ -32,14 +33,16 @@ ActiveRecord::Schema.define(version: 20170630194022) do
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "deleted",    default: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "deleted",    default: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -56,9 +59,10 @@ ActiveRecord::Schema.define(version: 20170630194022) do
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.text     "body"
+    t.boolean  "deleted",    default: false
   end
 
   add_foreign_key "articles", "authors"

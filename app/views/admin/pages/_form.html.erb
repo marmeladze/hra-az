@@ -19,7 +19,7 @@
     <%= f.label :image %><br>
     <%= f.hidden_field :image_cache %>    
     <%= f.file_field :image %>
-    <%= image_tag(@page.image_url, height: '50', width: '50') if @page.image? %>
+    <%= cl_image_tag(@article.image_url, :width => 50, :height => 50, :crop => :fill) if @page.image? %>
   </div>
   <div class="field">
     <%= f.label :body %><br>

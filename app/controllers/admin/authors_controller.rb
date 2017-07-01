@@ -1,11 +1,11 @@
 class Admin::AuthorsController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "geometry123"
-  before_action :set_author, only: [:edit, :update, :destroy]
+  before_action :set_author, only: [:edit, :update, :destroy, :remove]
 
   layout "admin"
 
   def index
-    @authors = Author.all
+    @authors = Author.living
   end
 
   def new
@@ -37,12 +37,17 @@ class Admin::AuthorsController < ApplicationController
     redirect_to admin_authors_path, notice: 'author was successfully destroyed.'
   end
 
+  def remove
+    @author.remove!
+    redirect_to admin_authors_path, notice: 'author was successfully deleted.'
+  end
+
   private
     def set_author
       @author = Author.find(params[:id])
     end
 
     def author_params
-      params.require(:author).permit(:name, :image)
+      params.require(:author).permit(:name, :image, :deleted)
     end
 end

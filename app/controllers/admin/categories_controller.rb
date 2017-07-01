@@ -1,11 +1,11 @@
 class Admin::CategoriesController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "geometry123"
-  before_action :set_category, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy, :remove]
 
   layout "admin"
 
   def index
-    @categories = Category.all
+    @categories = Category.living
   end
 
   def new
@@ -32,9 +32,15 @@ class Admin::CategoriesController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @category.destroy
     redirect_to admin_categories_path, notice: 'category was successfully destroyed.'
+  end
+
+  def remove
+    @category.remove!
+    redirect_to admin_categories_path, notice: 'Category was successfully deleted.'
   end
 
   private
@@ -43,6 +49,6 @@ class Admin::CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :deleted)
     end
 end

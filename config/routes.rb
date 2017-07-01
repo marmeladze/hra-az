@@ -5,11 +5,21 @@ root 'home#index'
 get "/admin" => 'admin/pages#index'
 
 namespace :admin do 
-  resources :pages
-  resources :articles
-  resources :categories
-  resources :authors
-  resources :documents
+  resources :pages do 
+    put "remove", on: :member
+  end
+  resources :articles do 
+    put "remove", on: :member
+  end
+  resources :categories do 
+    put "remove", on: :member
+  end
+  resources :authors do 
+    put "remove", on: :member
+  end
+  resources :documents do 
+    put "remove", on: :member
+  end
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
