@@ -48,6 +48,6 @@ class Admin::DocumentsController < ApplicationController
     end
 
     def document_params
-      params.require(:document).permit(:abbr, :title, :found, :organization, :url_az, :url_en, :deleted)
+      params.require(:document).permit(:abbr, :title, :found, :description, :organization, :url_az, :url_en, :deleted)
     end
 end

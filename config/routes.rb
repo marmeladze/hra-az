@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   root 'home#index'
 
   get '/admin' => 'admin/pages#index'
@@ -9,12 +11,14 @@ Rails.application.routes.draw do
   resources :categories, only: [:show], param: :slug, path: "bolmeler"
   resources :articles, only: [:show], param: :slug, path: "yazilar"
   resources :authors, only: [:show], param: :slug, path: "muellifler"
+  resources :documents, only: [:index, :show], param: :slug, path: "senedler"
 
   get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
   get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
   get 'articles/:slug', to: redirect('/yazilar/%{slug}')
   get 'authors/:slug', to: redirect('/muellifler/%{slug}')
-
+  get 'documents', to: redirect('/senedler')
+  get 'documents/:slug', to: redirect('/senedler/%{slug}')
 
   
   namespace :admin do 

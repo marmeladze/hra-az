@@ -9,6 +9,10 @@ class Author < ActiveRecord::Base
 
   scope :living, -> { where(deleted: false) }
   
+  def living?
+    not deleted?
+  end
+  
   def title
     name
   end

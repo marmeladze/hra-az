@@ -8,6 +8,10 @@ class Category < ActiveRecord::Base
 
   scope :living, -> { where(deleted: false) }
 
+  def living?
+    not deleted?
+  end
+
   def remove!
     Category.where(id: id).update_all(deleted: true)
   end

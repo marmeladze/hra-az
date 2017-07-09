@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">Sənədlər</h1>
+          <ol class="breadcrumb">
+            <li><%= link_to "Ana Səhifə", root_path  %></li>
+            <li class="active">"Sənədlər"</li>
+          </ol>
+      </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-12">
+      <% @documents.each do |doc| %>
+          <div class="accordion-heading country">
+            <%= link_to doc.title, doc.anchorize, data: {toggle: 'collapse'}  %>
+          </div>
+          <div id="<%= doc.slug %>" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <div class="row">
+                <div class="col-md-10">
+                  <table class="table table-striped table-condensed">
+                    <thead>
+                      <tr>
+                        <th>Abbreviatura</th>
+                        <th>Adı</th>
+                        <th>Qəbul olunub</th>
+                        <th>Qurum</th>
+                      </tr>
+                    </thead>   
+                    <tbody>
+                      <tr>
+                        <td><%= doc.abbr %></td>
+                        <td><%= doc.title %></td>
+                        <td><%= doc.found %></td>
+                        <td><%= doc.organization %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-2">
+                  <%= link_to 'Ətraflı', document_path(slug: doc.slug), class: "btn btn-lg btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+      <% end %>
+    </div>
+  </div>  
+</div>

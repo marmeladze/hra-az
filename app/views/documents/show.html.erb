@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header"><%= @document.title %></h1>
+          <ol class="breadcrumb">
+            <li><%= link_to "Ana Səhifə", root_path  %></li>
+            <li><%= link_to "Sənədlər", documents_path  %></li>
+            <li class="active"><%= @document.title %></li>
+          </ol>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3><%= @document.title %></h3>
+      <p><%= @document.description.html_safe %></p>
+      <ul>
+        <li>Tərtib olunub: <strong><%= @document.found %></strong> </li>
+        <li>Qurum: <strong><%= @document.organization %></strong> </li>
+        <li>Abbreviatura: <strong><%= @document.abbr %></strong> </li>
+        <li>Azərbaycan dilində: <strong><%= @document.url_az %></strong> </li>
+        <li>İngilis dilində: <strong><%= @document.url_en %></strong> </li>        
+      </ul>
+    </div>
+  </div>
+</div>

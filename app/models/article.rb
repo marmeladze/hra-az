@@ -10,6 +10,10 @@ class Article < ActiveRecord::Base
   scope :living, -> { where(deleted: false) }
   scope :for_slider, -> { living.order(id: :desc).take(5) }
 
+  def living?
+    not deleted?
+  end
+
   def remove!
     Article.where(id: id).update_all(deleted: true)
   end

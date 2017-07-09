@@ -7,6 +7,9 @@ class Page < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   scope :living, -> { where(deleted: false) }
 
+  def living?
+    not deleted?
+  end
 
   def remove!
     Page.where(id: id).update_all(deleted: true)
