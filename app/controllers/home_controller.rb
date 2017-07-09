@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    articles = Article.for_slider
+    category = Category.find_by(slug: 'xeberler')
+    articles = category.articles.for_slider
     @active = articles.first
     @rest = articles - [@active]
   end
