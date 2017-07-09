@@ -1,14 +1,4 @@
-Author.create!([
-  {name: "John Doe", image: "image/upload/v1498853691/john-doe.jpg", deleted: false, slug: nil},
-  {name: "Mary Donovan", image: "image/upload/v1498853916/mary-donovan.jpg", deleted: false, slug: nil},
-  {name: "Joachim Axel", image: "image/upload/v1498853958/joachim-axel.jpg", deleted: false, slug: nil},
-  {name: "Wendy Zhou", image: "image/upload/v1498854043/wendy-zhou.jpg", deleted: false, slug: nil},
-  {name: "Catherine Black", image: "image/upload/v1498854129/catherine-black.jpg", deleted: false, slug: nil}
-])
 Category.create!([
-  {name: "Təfsir", deleted: false, slug: "t-fsir"},
-  {name: "Rəy", deleted: false, slug: "r-y"},
-  {name: "Qanunvericilik", deleted: true, slug: "qanunvericilik"},
   {name: "Xəbərlər", deleted: false, slug: "x-b-rl-r"}
 ])
 Contact.create!([
