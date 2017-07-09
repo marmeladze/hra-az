@@ -18,6 +18,6 @@ class Author < ActiveRecord::Base
   end
 
   def update_slug
-    self.update_column(:slug, self.name.parameterize)
+    self.update_column(:slug, self.name.gsub('ə', 'e').parameterize)
   end  
 end

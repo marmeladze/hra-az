@@ -1,0 +1,25 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Haqqımızda
+                </h1>
+                <ol class="breadcrumb">
+                    <li><%= link_to "Ana Səhifə", root_path  %></li>
+                    <li class="active"><%= @page.title %></li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="container">
+                <%= raw @page.body %>
+              </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+    </div>

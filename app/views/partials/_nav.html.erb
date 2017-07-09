@@ -11,6 +11,12 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <% @pages.each do |page| %>
+                  <li><%= link_to page.title, page_path(slug: page.slug) %></li>  
+                <% end %>
+                <% @categories.each do |category| %>
+                  <li><%= link_to category.name, category_path(slug: category.slug) %></li>  
+                <% end %>               
                 <li>
                     <%= link_to "Əlaqə", contacts_path %>
                 </li>
