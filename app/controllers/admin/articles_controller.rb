@@ -47,7 +47,7 @@ class Admin::ArticlesController < ApplicationController
   private
     def set_related
       @authors = Author.pluck(:name, :id)
-      @categories = Category.pluck(:name, :id, :deleted)
+      @categories = Category.where(deleted: false).pluck(:name, :id)
     end
     
     def set_article

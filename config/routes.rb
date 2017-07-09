@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 root 'home#index'
 
 get "/admin" => 'admin/pages#index'
+get "/contacts" => 'home#contacts'
 
 namespace :admin do 
   resources :pages do 
@@ -20,6 +21,7 @@ namespace :admin do
   resources :documents do 
     put "remove", on: :member
   end
+  resources :contacts
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
