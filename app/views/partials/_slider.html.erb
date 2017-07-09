@@ -29,7 +29,7 @@
           <h4><%= @active.title %></h4>
         </li>      
         <% @rest.each_with_index do |art, i| %>
-          <li data-target="#myCarousel" data-slide-to='<%= "#{i+1}" %>' class="list-group-item active">
+          <li data-target="#myCarousel" data-slide-to='<%= "#{i+1}" %>' class="list-group-item">
             <h4><%= art.title %></h4>
           </li>
         <% end %>
