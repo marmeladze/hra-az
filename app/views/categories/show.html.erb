@@ -16,13 +16,13 @@
           <p><%= l article.created_at, format: '%d %B, %Y' %></p>
         </div>
         <div class="col-md-5">
-          <a href="blog-post.html">
+          <%= link_to article_path(slug: article.slug) do %>
             <%= cl_image_tag(article.image, width:600, height: 300, crop: :fill, class: "img-responsive img-hover", alt: article.title) %>
-          </a>
+          <% end %>
         </div>
         <div class="col-md-6">
           <h3>
-              <%= link_to article.title, "#" %>
+              <%= link_to article.title, article_path(slug: article.slug) %>
           </h3>
           <p>Müəllif: <strong><%= link_to article.author.name, "#" %></strong>
           </p>

@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/pages#index'
   get '/contacts' => 'home#contacts'
 
-  resources :pages, only: [:show], param: :slug
-  resources :categories, only: [:show], param: :slug
-  resources :articles, only: [:show], param: :slug
+  resources :pages, only: [:show], param: :slug, path: "sehifeler"
+  resources :categories, only: [:show], param: :slug, path: "bolmeler"
+  resources :articles, only: [:show], param: :slug, path: "yazilar"
+  resources :authors, only: [:show], param: :slug, path: "muellifler"
+
+  get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
+  get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
+  get 'articles/:slug', to: redirect('/yazilar/%{slug}')
+  get 'authors/:slug', to: redirect('/muellifler/%{slug}')
+
+
   
   namespace :admin do 
     resources :pages do 
