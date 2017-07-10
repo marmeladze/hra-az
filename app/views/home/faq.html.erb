@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">FAQ
-        <small>Subheading</small>
-      </h1>
+      <h1 class="page-header">Sual-Cavab</h1>
       <ol class="breadcrumb">
         <li><%= link_to "Ana Səhifə", root_path  %></li>
         <li class="active">Sual-Cavab</li>
@@ -20,9 +18,9 @@
                 <%= link_to question.title, question.anchorize, class: 'accordion-toggle', data: {toggle: 'collapse', parent: '#accordion'} %>
               </h4>
             </div>
-            <div id="<%= question.anchorize %>" class="panel-collapse collapse">
+            <div id="<%= question.slug %>" class="panel-collapse collapse">
               <div class="panel-body">
-                <%= question.answer %>
+                <%= question.answer.html_safe %>
               </div>
             </div>
           </div>

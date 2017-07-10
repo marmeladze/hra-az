@@ -17,7 +17,8 @@
                 <% end %>
                 <% @categories.each do |category| %>
                   <li><%= link_to category.name, category_path(slug: category.slug) %></li>  
-                <% end %>               
+                <% end %>
+                <li><%= link_to 'Sual-Cavab', questions_path %></li>              
                 <li>
                     <%= link_to "Əlaqə", contacts_path %>
                 </li>
