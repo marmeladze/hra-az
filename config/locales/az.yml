@@ -1,4 +1,10 @@
 az:
+  views:
+    pagination:
+      first: 'BİRİNCİ'
+      next: 'Növbətİ'
+      last: 'Sonuncu'
+      previous: 'Əvvəlkİ'
   activerecord:
     errors:
       messages:
