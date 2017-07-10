@@ -22,6 +22,10 @@
     <%= cl_image_tag(@page.image, :width => 50, :height => 50, :crop => :fill) if @page.image? %>
   </div>
   <div class="field">
+    <%= f.label :show_in_navnar %><br>
+    <%= f.check_box :show_in_navbar %>
+  </div>  
+  <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>

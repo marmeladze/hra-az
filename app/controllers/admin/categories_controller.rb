@@ -49,6 +49,6 @@ class Admin::CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name, :deleted)
+      params.require(:category).permit(:name, :show_in_navbar, :deleted)
     end
 end

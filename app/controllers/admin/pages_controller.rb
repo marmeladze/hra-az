@@ -48,6 +48,6 @@ class Admin::PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:title, :image, :body, :deleted)
+      params.require(:page).permit(:title, :image, :show_in_navbar, :body, :deleted)
     end
 end

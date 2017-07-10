@@ -7,6 +7,7 @@ class Category < ActiveRecord::Base
   has_many :articles
 
   scope :living, -> { where(deleted: false) }
+  scope :for_navbar, -> { living.where(show_in_navbar: true) }
 
   def living?
     not deleted?

@@ -5,7 +5,9 @@ class Page < ActiveRecord::Base
   validates :title, :body, presence: true
 
   mount_uploader :image, ImageUploader
+  
   scope :living, -> { where(deleted: false) }
+  scope :for_navbar, -> { living.where(show_in_navbar: true) }
 
   def living?
     not deleted?
