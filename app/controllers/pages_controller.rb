@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+
+  def index
+    @pages = Page.living
+  end
+
   def show
     @page = Page.find_by(slug: params[:slug])
     if @page && @page.living?

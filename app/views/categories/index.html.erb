@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <h1 class="page-header">Bütün bölmələr</h1>
+      <ol class="breadcrumb">
+        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li class="active">Bütün yazı bölmələri</li>
+      </ol>      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="well">    
+        <% @categories.each do |category| %>
+        <p><%= link_to category.name, category_path(slug: category.slug) %>&nbsp;&nbsp;&nbsp;&nbsp;<small>Cəmi <%= category.articles.living.count %> yazı</small></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

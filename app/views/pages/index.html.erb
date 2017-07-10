@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <h1 class="page-header">Bütün səhifələr</h1>
+      <ol class="breadcrumb">
+        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li class="active">Bütün səhifələr</li>
+      </ol>      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="well">    
+        <% @pages.each do |page| %>
+          <p><%= link_to page.title, page_path(slug: page.slug) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

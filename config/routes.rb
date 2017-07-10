@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
-
-
   root 'home#index'
 
   get '/admin' => 'admin/pages#index'
   get '/contacts' => 'home#contacts'
 
-  resources :pages, only: [:show], param: :slug, path: "sehifeler"
-  resources :categories, only: [:show], param: :slug, path: "bolmeler"
+  resources :pages, only: [:index, :show], param: :slug, path: "sehifeler"
+  resources :categories, only: [:index, :show], param: :slug, path: "bolmeler"
   resources :articles, only: [:show], param: :slug, path: "yazilar"
   resources :authors, only: [:show], param: :slug, path: "muellifler"
   resources :documents, only: [:index, :show], param: :slug, path: "senedler"
   resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
 
+  get 'categories', to: redirect('/bolmeler')
   get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
+  get 'pages', to: redirect('/sehifeler')
   get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
   get 'articles/:slug', to: redirect('/yazilar/%{slug}')
   get 'authors/:slug', to: redirect('/muellifler/%{slug}')
