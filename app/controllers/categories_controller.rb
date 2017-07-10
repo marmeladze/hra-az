@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(slug: params[:slug])
     @articles = @category.articles.living
     
-    if @category.living?
+    if @category && @category.living?
       render 'show'
     else
       render file: 'public/404.html', status: :not_found

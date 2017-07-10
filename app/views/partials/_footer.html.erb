@@ -18,7 +18,7 @@
               <div class="col-md-3 col-lg-3">
                 <strong><p>Səhifələr</p></strong>
                 <% @fpages.each do |pg| %>
-                  <p><%= link_to pg.title, category_path(slug: pg.slug)  %></p>
+                  <p><%= link_to pg.title, page_path(slug: pg.slug)  %></p>
                 <% end %>
               </div>
               <div class="col-md-3 col-lg-3">
