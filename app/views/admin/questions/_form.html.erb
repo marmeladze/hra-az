@@ -26,21 +26,21 @@
 </div>
 <script type="text/javascript">
   attachContent = function() {
-    console.log('here i am');
-    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+    document.querySelector("textarea").value = document.querySelector(".Editor-editor").innerHTML;
   }
 
-  window.onload = function() {
-    document.querySelector('.Editor-editor').addEventListener('click', function(){
-      attachContent();
-    });
-  }
-</script>
-<script type="text/javascript">
   window.onload = function() {
     if (window.location.pathname.includes("/edit")) {
       var tv = document.querySelector("textarea").value;
       document.querySelector(".Editor-editor").innerHTML = tv ;  
     }
+    
+    if (window.location.pathname.includes("/new")) {
+    document.querySelector('.Editor-editor').addEventListener('input', function(){
+      console.log('someone is updating me');
+      attachContent();
+    });
   }
+}
+
 </script>

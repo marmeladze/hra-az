@@ -16,7 +16,7 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.title %></td>
-        <td><%= question.answer %></td>
+        <td><%= question.answer.html_safe %></td>
         <td><%= link_to 'Edit', edit_admin_question_path(question) %></td>
         <td><%= link_to 'Destroy', [:admin, question], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
