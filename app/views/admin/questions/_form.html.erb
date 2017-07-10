@@ -1,0 +1,46 @@
+<div class="well">
+<%= form_for [:admin, @question] do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br>
+    <%= f.text_area :answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<script type="text/javascript">
+  attachContent = function() {
+    console.log('here i am');
+    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+  }
+
+  window.onload = function() {
+    document.querySelector('.Editor-editor').addEventListener('click', function(){
+      attachContent();
+    });
+  }
+</script>
+<script type="text/javascript">
+  window.onload = function() {
+    if (window.location.pathname.includes("/edit")) {
+      var tv = document.querySelector("textarea").value;
+      document.querySelector(".Editor-editor").innerHTML = tv ;  
+    }
+  }
+</script>

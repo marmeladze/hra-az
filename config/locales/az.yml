@@ -82,16 +82,16 @@ az:
         other: "%{count} ildən çox"
       x_days:
         one: 1 gün
-        other: "%{count} gün"
+        other: "%{count} gün əvvəl"
       x_minutes:
         one: 1 dəqiqə
-        other: "%{count} dəqiqə"
+        other: "%{count} dəqiqə əvvəl"
       x_months:
         one: 1 ay
-        other: "%{count} ay"
+        other: "%{count} ay əvvəl"
       x_seconds:
         one: 1 saniyə
-        other: "%{count} saniyə"
+        other: "%{count} saniyə əvvəl"
     prompts:
       day: Gün
       hour: Saat

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:show], param: :slug, path: "yazilar"
   resources :authors, only: [:show], param: :slug, path: "muellifler"
   resources :documents, only: [:index, :show], param: :slug, path: "senedler"
+  resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
 
   get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
   get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
@@ -19,9 +20,12 @@ Rails.application.routes.draw do
   get 'authors/:slug', to: redirect('/muellifler/%{slug}')
   get 'documents', to: redirect('/senedler')
   get 'documents/:slug', to: redirect('/senedler/%{slug}')
-
+  get 'questions', to: redirect('/sual-cavab')
+  get 'questions/:slug', to: redirect('/sual-cavab/%{slug}')
   
-  namespace :admin do 
+  namespace :admin do
+    resources :questions
+
     resources :pages do 
       put "remove", on: :member
     end
