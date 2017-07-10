@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
     if @article && @article.living?
       render 'show'
     else
-      render file: 'public/404.html', status: :not_found
+      render 'home/404', status: :not_found
     end    
   end
 end

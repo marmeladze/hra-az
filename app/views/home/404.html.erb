@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">404
+        <small>Səhifə tapılmadı</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li class="active">404</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron">
+        <h1><span class="error-404">404</span>
+        </h1>
+        <p>Axtardığınız səhifə tapılmadı. Əgər bura hansısa axtarış mühərriki vasitəsilə gəlmisinizsə, çox güman ki, bu saytda nə vaxtsa belə səhifə mövcud olub, daha sonra da hansısa səbəbə görə silinib. Bu halda, həmin axtarış motorunun keş arxivindən həmin səhifəyə  baxa bilərsiniz. </p>
+
+        <p>Bəlkə axtardığınız burdadır?</p>
+        <ul>
+          <li><%= link_to "Ana səhifə", root_path %></li>
+          <li><%= link_to "Sənədlər", documents_path %></li>
+          <% Page.living.each do |page| %>
+            <li><%= link_to page.title, page_path(slug: page.slug) %></li>  
+          <% end %>
+          <% Category.living.each do |category| %>
+            <li>
+              <%= link_to category.name, category_path(slug: category.slug) %>
+              <ul>
+                <% category.articles.living.take(5).each do |article| %>
+                  <li><%= link_to article.title, article_path(slug: article.slug) %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+          <li><%= link_to 'Sual-Cavab', questions_path %></li>              
+          <li><%= link_to "Əlaqə", contacts_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+</div>
