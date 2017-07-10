@@ -18,7 +18,7 @@
           <div class="panel-heading">
             <h4>
               <i class="fa fa-clock-o"></i>&nbsp;<small><%= time_ago_in_words(article.created_at) %></small>
-              <i class="fa fa-list"></i>&nbsp;<small><%= link_to article.category.name, article_path(slug: article.slug) %></small>
+              <i class="fa fa-list"></i>&nbsp;<small><%= link_to article.category.name, category_path(slug: article.category.slug) %></small>
             </h4>
           </div>
           <div class="panel-body">
