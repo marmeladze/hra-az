@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hra</title>
+  <title>
+    <%= if content_for?(:title) then yield(:title) + '|' end %>
+    Baku Academy of Human Rights Law
+  </title>
+  <meta name='description' content='<%= yield_meta_tag(:description, 'Official web site of Baku Academy of Human Rights Law, Bakı İnsan Haqları Akademiyasının rəsmi veb saytı') %>' />
+  <meta name='keywords' content='<%= yield_meta_tag(:keywords, 'human rights, insan haqları, hüquq, kurs') %>' />
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
