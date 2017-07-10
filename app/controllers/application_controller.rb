@@ -9,5 +9,7 @@ class ApplicationController < ActionController::Base
   def fetch_pages_and_categories
     @pages = Page.for_navbar
     @categories = Category.for_navbar
+    @fpages = Page.living
+    @fcategories = Category.living
   end
 end

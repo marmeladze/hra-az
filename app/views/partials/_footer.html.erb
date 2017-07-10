@@ -2,9 +2,31 @@
   <footer>
     <div class="row">
       <div class="col-lg-12">
-        <div class="well">
-          <p>Copyright &copy; HRA <%= Date.current.year %></p>
-        </div>
+          <div class="well">
+            <div class="row">
+              <div class="col-md-3 col-lg-3">
+                <p>Copyright &copy; HRA <%= Date.current.year %></p>
+                  <p><%= link_to "Sənədlər", documents_path %></p>
+                  <p><%= link_to "Sual-Cavab", questions_path %></p>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <strong><p>Bölmələr</p></strong>
+                <% @fcategories.each do |c| %>
+                  <p><%= link_to c.name, category_path(slug: c.slug)  %></p>
+                <% end %>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <strong><p>Səhifələr</p></strong>
+                <% @fpages.each do |pg| %>
+                  <p><%= link_to pg.title, category_path(slug: pg.slug)  %></p>
+                <% end %>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                  
+              </div>
+
+            </div>
+          </div>
       </div>
     </div>
   </footer>
