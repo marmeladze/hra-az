@@ -2,7 +2,7 @@
 
 <h1>Listing Pages</h1>
 <%= link_to 'New Page', new_admin_page_path, class: "btn btn-success" %>
-
+<%= paginate @pages, remote: true %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

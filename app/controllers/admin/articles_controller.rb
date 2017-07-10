@@ -6,7 +6,7 @@ class Admin::ArticlesController < ApplicationController
   layout "admin"
 
   def index
-    @articles = Article.living
+    @articles = Article.living.page params[:page]
   end
 
   def new

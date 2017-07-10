@@ -4,25 +4,34 @@
       <div class="col-lg-12">
           <div class="well">
             <div class="row">
-              <div class="col-md-3 col-lg-3">
-                <p>Copyright &copy; HRA <%= Date.current.year %></p>
+              <div class="col-md-2 col-lg-2">
+                <strong><p>&copy; HRA <%= Date.current.year %></p></strong>
                   <p><%= link_to "Sənədlər", documents_path %></p>
                   <p><%= link_to "Sual-Cavab", questions_path %></p>
               </div>
-              <div class="col-md-3 col-lg-3">
+              <div class="col-md-2 col-lg-2">
                 <strong><p>Bölmələr</p></strong>
                 <% @fcategories.each do |c| %>
                   <p><%= link_to c.name, category_path(slug: c.slug)  %></p>
                 <% end %>
               </div>
-              <div class="col-md-3 col-lg-3">
+              <div class="col-md-2 col-lg-2">
                 <strong><p>Səhifələr</p></strong>
                 <% @fpages.each do |pg| %>
                   <p><%= link_to pg.title, page_path(slug: pg.slug)  %></p>
                 <% end %>
               </div>
-              <div class="col-md-3 col-lg-3">
-                  
+              <div class="col-md-4 col-lg-4">
+                <strong><p>Son yazılar</p></strong>
+                <% @latest.each do |article| %>
+                  <p><%= link_to article.title, article_path(slug: article.slug) %></p>
+                <% end %>
+              </div>
+              <div class="col-md-2 col-lg-2">
+                  <strong><p>Əlaqə<p></strong>
+                  <p><%= @contact.phone %></p>
+                  <p><%= link_to "Twitter", @contact.facebook %></p>
+                  <p><%= link_to "Facebook", @contact.twitter %></p>                  
               </div>
 
             </div>

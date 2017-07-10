@@ -4,6 +4,7 @@
 
 <%= link_to 'New Author', new_admin_author_path, class: "btn btn-success" %>
 
+<%= paginate @authors, remote: true %>
 
 <table class="table table-bordered table-hover">
   <thead>

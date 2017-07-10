@@ -3,7 +3,7 @@
 <h1>Listing Categories</h1>
 
 <%= link_to 'New Category', new_admin_category_path, class: "btn btn-success" %>
-
+<%= paginate @categories, remote: true %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

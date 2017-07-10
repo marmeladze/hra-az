@@ -2,7 +2,7 @@
 
 <h1>Listing Documents</h1>
 <%= link_to 'New Document', new_admin_document_path, class: "btn btn-success" %>
-
+<%= paginate @documents, remote: true %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

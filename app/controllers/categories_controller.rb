@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(slug: params[:slug])
-    @articles = @category.articles.living
+    @articles = @category.articles.living.page params[:page]
     
     if @category && @category.living?
       render 'show'

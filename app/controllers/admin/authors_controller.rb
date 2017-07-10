@@ -5,7 +5,7 @@ class Admin::AuthorsController < ApplicationController
   layout "admin"
 
   def index
-    @authors = Author.living
+    @authors = Author.living.page params[:page]
   end
 
   def new

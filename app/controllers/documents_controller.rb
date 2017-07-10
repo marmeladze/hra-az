@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.living
+    @documents = Document.living.page params[:page]
   end
 
   def show

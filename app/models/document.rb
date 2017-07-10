@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  paginates_per 15
   after_save :update_slug
 
   scope :living, -> { where(deleted: false) }

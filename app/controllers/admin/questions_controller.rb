@@ -5,7 +5,7 @@ class Admin::QuestionsController < ApplicationController
   layout "admin"
 
   def index
-    @questions = Question.all
+    @questions = Question.all.page params[:page]
   end
 
   def new

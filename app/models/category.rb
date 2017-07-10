@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  paginates_per 15
   after_save :update_slug
 
   validates :name, presence: true

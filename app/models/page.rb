@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  paginates_per 15
   after_save :update_slug
 
   validates :title, uniqueness: true

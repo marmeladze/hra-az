@@ -11,5 +11,7 @@ class ApplicationController < ActionController::Base
     @categories = Category.for_navbar
     @fpages = Page.living
     @fcategories = Category.living
+    @contact = Contact.first
+    @latest = Article.living.order(updated_at: :desc).take(3)
   end
 end

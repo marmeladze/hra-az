@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   layout "admin"
 
   def index
-    @categories = Category.living
+    @categories = Category.living.page params[:page]
   end
 
   def new
