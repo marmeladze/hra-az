@@ -11640,7 +11640,7 @@ body {
 
 /* line 22, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/home.scss */
 #myCarousel .list-group .active {
-  background-color: #eee;
+  background-color: #2C3E50;
 }
 
 @media (min-width: 992px) {

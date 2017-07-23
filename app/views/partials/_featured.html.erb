@@ -14,7 +14,7 @@
     </div>
     <% @featured.each do  |article| %>
       <div class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h4>
               <i class="fa fa-clock-o"></i>&nbsp;<small><%= time_ago_in_words(article.created_at) %></small>
