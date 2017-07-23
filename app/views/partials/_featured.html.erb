@@ -24,7 +24,7 @@
           <div class="panel-body">
             <h1 class='featured-header'><%= article.title %></h1>
             <p><%= "#{strip_tags(article.body.html_safe).slice(0, 200)} ..." %></p>
-            <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "btn btn-default" %>
+            <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "btn btn-primary" %>
           </div>
         </div>
       </div>

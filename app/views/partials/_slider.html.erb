@@ -7,7 +7,7 @@
         <div class="item active">
           <%= cl_image_tag(@active.image, width: 760, height: 400, crop: :fill, alt: @active.title) %>
           <div class="carousel-caption">
-            <h4><a href="#"><%= @active.title %></a></h4>
+            <h4><%= link_to @active.title, article_path(slug: @active.slug) %></h4>
             <p><%= link_to "Ardını oxu", article_path(slug: @active.slug), class: "label label-primary" %></p>
           </div>
         </div>
@@ -16,7 +16,7 @@
           <div class="item">
             <%= cl_image_tag(article.image, width: 760, height: 400, crop: :fill, alt: article.title) %>
              <div class="carousel-caption">
-              <h4><a href="#"><%= article.title %></a></h4>
+              <h4><%= link_to article.title, article_path(slug: article.slug) %></h4>
               <p><%= link_to "Ardını oxu", article_path(slug: article.slug), class: "label label-primary" %></p>
             </div>
           </div>
