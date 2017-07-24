@@ -1,6 +1,8 @@
 <style>
   body { margin-top: 1px; }
-
+  #myCarousel {
+    margin-bottom: 15px;
+  }
   #myCarousel .carousel-caption {
     left:0;
     right:0;
@@ -9,6 +11,11 @@
     padding:10px;
     background:rgba(0,0,0,0.6);
     text-shadow:none;
+  }
+  
+  #tabbed-carousel .carousel-caption {
+    background:rgba(0,0,0,0.6);
+    text-shadow:none;    
   }
 
   #myCarousel .list-group {
@@ -21,8 +28,8 @@
     cursor:pointer;
   }
   #myCarousel .list-group .active {
-    background-color: #2C3E50;;
-    border-color: #eee;
+    background-color: #2C3E50;
+    border-color: black;
   }
 
   @media (min-width: 992px) { 
@@ -34,6 +41,8 @@
     #myCarousel .list-group {display:none;} 
   }    
 </style>
+
+<%= render 'partials/tabbed_slider' %>
 <%= render 'partials/slider' %>
 <%= render 'partials/featured' %>
 <script type="text/javascript">
