@@ -1,0 +1,103 @@
+<style type="text/css">
+
+#tabbed-carousel {
+  margin-bottom: 20px;
+}
+
+#tabbed-carousel .nav a small {
+    display:block;
+}
+#tabbed-carousel .nav {
+  background:#eee;
+}
+
+#tabbed-carousel .nav li.active {
+  background:#2C3E50;
+}
+
+#tabbed-carousel .nav a {
+    border-radius:0px;
+}
+
+</style>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li class="active">Proqramlar</li>
+        </ol>
+      </div>
+    </div>
+    <div id="tabbed-carousel" class="carousel slide" data-ride="carousel">
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        
+        <div class="item active">
+          <%= cl_image_tag(@active_pr.image, width: 1200, height: 400, crop: :fill, alt: @active.title) %>
+          <div class="carousel-caption">
+            <h3><%= @active_pr.title %></h3>
+            <p>
+              <%= strip_tags(@active_pr.body).slice(0, 150) %>...
+              <%= link_to "Ardını oxu", article_path(slug: @active_pr.slug), class: "label label-primary" %>
+            </p>
+          </div>
+        </div><!-- End Item -->
+        
+        <%  @rest_pr.each do |article| %>
+          <div class="item">
+            <%= cl_image_tag(article.image, width: 1200, height: 400, crop: :fill, alt: article.title) %>
+            <div class="carousel-caption">
+              <h3><%= article.title %></h3>
+              <p>
+                <%= strip_tags(article.body).slice(0, 150) %>...
+                <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "label label-primary" %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+
+                
+      </div><!-- End Carousel Inner -->
+
+
+      <ul class="nav nav-pills nav-justified">
+        <li data-target="#tabbed-carousel" data-slide-to="0" class="active">
+          <a href="#"><small><%= @active_pr.title %></small></a>
+        </li>
+        <% @rest_pr.each_with_index do |rpr, i| %>
+          <li data-target="#tabbed-carousel" data-slide-to='<%= "#{i+1}" %>'><a href="#"><small><%= rpr.title %></small></a></li>            
+        <% end %>
+      </ul>
+
+
+    </div><!-- End Carousel -->
+</div>
+
+<script type="text/javascript">
+$(document).ready( function() {
+    $('#tabbed-carousel').carousel({
+    interval:   4000
+  });
+  
+  var clickEvent = false;
+  $('#tabbed-carousel').on('click', '.nav a', function() {
+      clickEvent = true;
+      $('.nav li').removeClass('active');
+      $(this).parent().addClass('active');    
+  }).on('slid.bs.carousel', function(e) {
+    if(!clickEvent) {
+      var count = $('.nav').children().length -1;
+      var current = $('.nav li.active');
+      current.removeClass('active').next().addClass('active');
+      var id = parseInt(current.data('slide-to'));
+      if(count == id) {
+        $('.nav li').first().addClass('active');  
+      }
+    }
+    clickEvent = false;
+  });
+});  
+</script>
