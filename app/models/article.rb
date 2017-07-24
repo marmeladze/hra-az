@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 
   scope :living, -> { where(deleted: false) }
   scope :for_slider, -> { living.order(id: :desc).take(5) }
-  scope :programmes, -> { living.where(category_id: 5).take(4) }
+  scope :programmes, -> { living.where(category_id: 5).take(5) }
 
 
   def living?
