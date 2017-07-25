@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     @fpages = Page.living
     @fcategories = Category.living
     @contact = Contact.first
-    @latest = Article.living.order(updated_at: :desc).take(3)
+    @latest = Article.living.order(updated_at: :desc).take(@fcategories.count - 2)
   end
 end
