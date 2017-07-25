@@ -9,6 +9,11 @@
   <meta name='keywords' content='<%= yield_meta_tag(:keywords, 'human rights, insan haqları, hüquq, kurs') %>' />
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
+  <style type="text/css">
+    body * {
+      border-radius: 0 !important;
+    }
+  </style>
   <%= csrf_meta_tags %>
 </head>
 <body>
