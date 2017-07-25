@@ -3,9 +3,9 @@ class HomeController < ApplicationController
     programmes = Article.programmes
     @active_pr = programmes.first
     @rest_pr = programmes - [@active_pr]
-    cat = Category.find_by(slug: 'xeberler')
-    @featured = Article.where.not(category_id: [cat.id, 5]).limit(3)
-    articles = cat.articles.for_slider
+    @cat = Category.find_by(slug: 'xeberler')
+    @featured = Article.where.not(category_id: [@cat.id, 5]).limit(6)
+    articles = @cat.articles.for_slider
     @active = articles.first
     @rest = articles - [@active]
   end

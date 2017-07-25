@@ -1,5 +1,9 @@
 <style>
   body { margin-top: 1px; }
+ 
+  body * {
+    border-radius: 0 !important;
+  }
   #myCarousel {
     margin-bottom: 15px;
   }
@@ -32,19 +36,24 @@
     border-color: black;
   }
 
-  @media (min-width: 992px) { 
+  .p-zero {
+    padding: 0 !important;
+  }
+
+/*  @media (min-width: 992px) { 
     #myCarousel {padding-right:33.3333%;}
     #myCarousel .carousel-controls {display:none;}  
   }
   @media (max-width: 991px) { 
     .carousel-caption p,
     #myCarousel .list-group {display:none;} 
-  }    
+  } */   
 </style>
 
 <%= render 'partials/tabbed_slider' %>
 <%= render 'partials/slider' %>
 <%= render 'partials/featured' %>
+<%= render 'partials/blogs' %>
 <script type="text/javascript">
   $(document).ready(function(){
       

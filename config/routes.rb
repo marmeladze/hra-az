@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:index, :show], param: :slug, path: "sehifeler"
   resources :categories, only: [:index, :show], param: :slug, path: "bolmeler"
   resources :articles, only: [:show], param: :slug, path: "yazilar"
-  resources :authors, only: [:show], param: :slug, path: "muellifler"
+  resources :authors, only: [:index, :show], param: :slug, path: "muellifler"
   resources :documents, only: [:index, :show], param: :slug, path: "senedler"
   resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
 
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'pages', to: redirect('/sehifeler')
   get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
   get 'articles/:slug', to: redirect('/yazilar/%{slug}')
+  get 'authors', to: redirect('/muellifler')
   get 'authors/:slug', to: redirect('/muellifler/%{slug}')
   get 'documents', to: redirect('/senedler')
   get 'documents/:slug', to: redirect('/senedler/%{slug}')

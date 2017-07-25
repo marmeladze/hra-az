@@ -1,55 +1,58 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <ol class="breadcrumb">
-          <li class="active">Xəbərlər</li>
-        </ol>
-      </div>
-    </div>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    
-
-      <div class="carousel-inner">
-
-        <div class="item active">
-          <%= cl_image_tag(@active.image, width: 760, height: 400, crop: :fill, alt: @active.title) %>
-          <div class="carousel-caption">
-            <h4><%= link_to @active.title, article_path(slug: @active.slug) %></h4>
-            <p><%= link_to "Ardını oxu", article_path(slug: @active.slug), class: "label label-primary" %></p>
-          </div>
-        </div>
-
-        <% @rest.each do |article| %>
-          <div class="item">
-            <%= cl_image_tag(article.image, width: 760, height: 400, crop: :fill, alt: article.title) %>
-             <div class="carousel-caption">
-              <h4><%= link_to article.title, article_path(slug: article.slug) %></h4>
-              <p><%= link_to "Ardını oxu", article_path(slug: article.slug), class: "label label-primary" %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-
-      <ul class="list-group col-sm-4">
-        <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active">
-          <h4><%= @active.title %></h4>
-        </li>      
-        <% @rest.each_with_index do |art, i| %>
-          <li data-target="#myCarousel" data-slide-to='<%= "#{i+1}" %>' class="list-group-item">
-            <h4><%= art.title %></h4>
-          </li>
-        <% end %>
-      </ul>
-
-      <div class="carousel-controls">
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
-      </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li class="active"><%= link_to "Xəbərlər", category_path(slug: @cat.slug) %></li>
+      </ol>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      
+
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <%= cl_image_tag(@active.image, width: 760, height: 400, crop: :fill, alt: @active.title) %>
+            <div class="carousel-caption">
+              <h4><%= link_to @active.title, article_path(slug: @active.slug) %></h4>
+              <p><%= link_to "Ardını oxu", article_path(slug: @active.slug), class: "label label-primary" %></p>
+            </div>
+          </div>
+
+          <% @rest.each do |article| %>
+            <div class="item">
+              <%= cl_image_tag(article.image, width: 760, height: 400, crop: :fill, alt: article.title) %>
+               <div class="carousel-caption">
+                <h4><%= link_to article.title, article_path(slug: article.slug) %></h4>
+                <p><%= link_to "Ardını oxu", article_path(slug: article.slug), class: "label label-primary" %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+
+        <ul class="list-group col-sm-4 p-zero">
+          <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active">
+            <h4><%= @active.title %></h4>
+          </li>      
+          <% @rest.each_with_index do |art, i| %>
+            <li data-target="#myCarousel" data-slide-to='<%= "#{i+1}" %>' class="list-group-item">
+              <h4><%= art.title %></h4>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="carousel-controls">
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
