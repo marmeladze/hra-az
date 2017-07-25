@@ -10,6 +10,10 @@ class Author < ActiveRecord::Base
 
   scope :living, -> { where(deleted: false) }
   
+  def blog_posts
+    articles.living.where(category_id: 6)
+  end
+
   def living?
     not deleted?
   end

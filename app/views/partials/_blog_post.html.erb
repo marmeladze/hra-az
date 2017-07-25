@@ -2,4 +2,16 @@
   <%= cl_image_tag(@article.author.image, width: 300, crop: :thumb, gravit: :face, class: "img-responsive pull-left thumbnail", alt: @article.title, style: 'margin-right: 15px; margin-bottom: 15px;') %>
   <%= @article.body.html_safe %>
 </p>
+<div class="row">
+  <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li class="active">Bütün yazıları</li>
+      </ol>
+  </div>
+  <div class="col-md-12">
+    <% @article.author.blog_posts.each do |blog| %>
+      <p><%= link_to blog.title, article_path(slug: blog.slug) %><small style="margin-left: 10px;"><%= l blog.created_at, format: '%d %B, %Y' %></small></p>
+    <% end %>
+  </div>
+</div>
 <hr>
