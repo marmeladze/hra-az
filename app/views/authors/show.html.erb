@@ -1,5 +1,71 @@
-<p>
-  <%= cl_image_tag(@article.author.image, width: 300, crop: :thumb, gravit: :face, class: "img-responsive pull-left thumbnail", alt: @article.title, style: 'margin-right: 15px; margin-bottom: 15px;') %>
-  <%= @article.body.html_safe %>
-</p>
-<hr>
+<style type="text/css">
+  .card {
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+      color: #2C3E50;
+      font-size: 15px;
+  }
+
+  button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #2C3E50;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+  }
+
+  a.card-link {
+      text-decoration: none;
+      font-size: 15px;
+      color: #2C3E50;
+  }
+
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><%= link_to "Ana Səhifə", root_path  %></li>
+          <li class="active"><%= @author.name %></li>
+        </ol>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <div class="card">
+            <%= cl_image_tag(@author.image, width: 300, crop: :thumb, gravit: :face, class: "img-responsive", alt: @author.title) %>    
+            <div class="card-container">
+              <h3 class="title"><%= @author.title %></h3>
+              <%= link_to @author.twitter, class: 'card-link' do  %>
+                <i class="fa fa-twitter"></i>
+              <% end %>
+              <%= link_to @author.facebook, class: 'card-link' do  %>
+                <i class="fa fa-facebook"></i>
+              <% end %>
+              <%= mail_to @author.email, class: 'card-link' do  %>
+                <i class="fa fa-envelope"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <% @author.blog_posts.each do |blog| %>
+            <p><%= link_to blog.title, article_path(slug: blog.slug), class: 'title' %><small style="margin-left: 10px;"><%= l blog.created_at, format: '%d %B, %Y' %></small></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

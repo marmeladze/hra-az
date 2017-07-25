@@ -14,7 +14,9 @@
       <hr>
       <p>
         <i class="glyphicon glyphicon-calendar"></i>&nbsp;<small><%= time_ago_in_words(@article.created_at) %></small>&nbsp;&nbsp;&nbsp;
-        <i class="fa fa-user"></i>&nbsp;<small><%= link_to @article.author.name, '#' %></small>
+        <% if @article.is_blog_post?  %>  
+          <i class="fa fa-user"></i>&nbsp;<small><%= link_to @article.author.name, author_path(slug: @article.author.slug) %></small>
+        <% end %>
       </p>
       
       <% if @article.is_blog_post? %> 

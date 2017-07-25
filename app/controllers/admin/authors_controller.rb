@@ -48,6 +48,6 @@ class Admin::AuthorsController < ApplicationController
     end
 
     def author_params
-      params.require(:author).permit(:name, :image, :deleted)
+      params.require(:author).permit(:name, :image, :deleted, :email, :twitter, :facebook)
     end
 end
