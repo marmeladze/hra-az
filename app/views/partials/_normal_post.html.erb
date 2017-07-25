@@ -1,0 +1,4 @@
+      <%= cl_image_tag(@article.image, height: 300, width: 1170, crop: :fill, class: "img-responsive", alt: @article.title) %>
+      <hr>
+      <p class="lead"><%= @article.body.html_safe %></p>
+      <hr> 

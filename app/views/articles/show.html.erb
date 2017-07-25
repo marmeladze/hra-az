@@ -13,16 +13,15 @@
     <div class="col-md-12 col-lg-12">
       <hr>
       <p>
-        <i class="fa fa-clock-o"></i>&nbsp;<small><%= time_ago_in_words(@article.created_at) %></small>&nbsp;&nbsp;&nbsp;
+        <i class="glyphicon glyphicon-calendar"></i>&nbsp;<small><%= time_ago_in_words(@article.created_at) %></small>&nbsp;&nbsp;&nbsp;
         <i class="fa fa-user"></i>&nbsp;<small><%= link_to @article.author.name, '#' %></small>
       </p>
-
-      <%= cl_image_tag(@article.image, height: 300, width: 1170, crop: :fill, class: "img-responsive", alt: @article.title) %>
-      <hr>
-
-      <!-- Post Content -->
-      <p class="lead"><%= @article.body.html_safe %></p>
-      <hr>    
+      
+      <% if @article.is_blog_post? %> 
+        <%= render 'partials/blog_post' %>
+      <% else %>
+        <%= render 'partials/normal_post' %>
+      <% end %>
     </div>
   </div>
 </div>

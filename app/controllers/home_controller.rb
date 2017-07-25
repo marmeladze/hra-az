@@ -4,7 +4,8 @@ class HomeController < ApplicationController
     @active_pr = programmes.first
     @rest_pr = programmes - [@active_pr]
     @cat = Category.find_by(slug: 'xeberler')
-    @featured = Article.where.not(category_id: [@cat.id, 5]).limit(6)
+    @blog_posts = Category.blog.articles.order(updated_at: :desc).take(3)
+    @featured = Article.where.not(category_id: [@cat.id, 5, 6]).limit(6)
     articles = @cat.articles.for_slider
     @active = articles.first
     @rest = articles - [@active]

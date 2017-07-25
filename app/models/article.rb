@@ -17,6 +17,14 @@ class Article < ActiveRecord::Base
     not deleted?
   end
 
+  def is_blog_post?
+    category.slug == 'bloq'
+  end
+
+  def blog_image
+    is_blog_post? ? author.image : image
+  end
+
   def remove!
     Article.where(id: id).update_all(deleted: true)
   end

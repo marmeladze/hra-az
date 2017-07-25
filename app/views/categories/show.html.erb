@@ -17,10 +17,11 @@
       </div>
       <div class="col-md-5">
         <%= link_to article_path(slug: article.slug) do %>
-          <%= cl_image_tag(article.image, width:600, height: 300, crop: :fill, class: "img-responsive img-hover", alt: article.title) %>
+          <%= cl_image_tag(article.blog_image, width:600, height: 300, crop: :thumb, gravity: :face, class: "img-responsive img-hover", alt: article.title) %>
         <% end %>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-5">
         <h3>
             <%= link_to article.title, article_path(slug: article.slug) %>
         </h3>

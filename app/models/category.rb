@@ -9,6 +9,7 @@ class Category < ActiveRecord::Base
 
   scope :living, -> { where(deleted: false) }
   scope :for_navbar, -> { living.where(show_in_navbar: true) }
+  scope :blog, -> { living.where(slug: 'bloq').first }
 
   def living?
     not deleted?
