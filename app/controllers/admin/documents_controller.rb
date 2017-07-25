@@ -5,7 +5,7 @@ class Admin::DocumentsController < ApplicationController
   layout "admin"
 
   def index
-    @documents = Document.living.page params[:page]
+    @documents = Document.living.order(updated_at: :desc).page params[:page]
   end
 
   def new

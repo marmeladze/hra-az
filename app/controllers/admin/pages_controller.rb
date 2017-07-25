@@ -5,7 +5,7 @@ class Admin::PagesController < ApplicationController
   layout "admin"
 
   def index
-    @pages = Page.living.page params[:page]
+    @pages = Page.living.order(updated_at: :desc).page params[:page]
   end
 
   def new

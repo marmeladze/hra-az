@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  paginates_per 5
+  paginates_per 15
   after_save :update_slug
 
   validates :title, uniqueness: true
