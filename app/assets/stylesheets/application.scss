@@ -4,4 +4,8 @@
 body { padding-top: 60px; }
 @import "bootswatch/flatly/bootswatch";
 @import "font-awesome";
-@import "home"
+@import "home";
+
+body * {
+  border-radius: 0 !important;
+}
