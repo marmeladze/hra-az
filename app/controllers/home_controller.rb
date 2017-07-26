@@ -9,6 +9,7 @@ class HomeController < ApplicationController
     articles = @cat.articles.for_slider
     @active = articles.first
     @rest = articles - [@active]
+    @interview = Article.interviews
   end
   def contacts
     @contact = Contact.last
