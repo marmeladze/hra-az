@@ -12,7 +12,10 @@
           <li class="active">Seçilmiş</li>
         </ol>
     </div>
-    <% @featured.each do  |article| %>
+  </div>
+    <% @featured.each_slice(3) do  |farticle| %>
+      <div class="row">
+      <% farticle.each do |article| %>
       <div class="col-md-4">
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -27,6 +30,8 @@
             <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "btn btn-primary" %>
           </div>
         </div>
+      </div>
+      <% end %>
       </div>
     <% end %>
   </div>
