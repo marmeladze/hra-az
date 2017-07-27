@@ -1,0 +1,56 @@
+<div class="well">
+  <%= form_for [:admin, @publication], html: { onsubmit: "attachContent()" } do |f| %>
+    <% if @publication.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+        <ul>
+        <% @publication.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :attachment %><br>
+      <%= f.file_field :attachment %>
+    </div>
+    <div class="field">
+      <%= f.label :author %><br>
+      <%= f.text_field :author %>
+    </div>
+    <div class="field">
+      <%= f.label :isbn %><br>
+      <%= f.text_field :isbn %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :summary %><br>
+      <%= f.text_area :summary %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  attachContent = function() {
+    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+  }  
+</script>
+<script type="text/javascript">
+window.onload = function() {
+  if (window.location.pathname.includes("/edit")) {
+    var tv = document.querySelector("textarea").value;
+    document.querySelector(".Editor-editor").innerHTML = tv ;  
+  }    
+}
+</script>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :authors, only: [:index, :show], param: :slug, path: "muellifler"
   resources :documents, only: [:index, :show], param: :slug, path: "senedler"
   resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
+  resources :publications, only: [:index, :show], param: :slug, path: 'nesrler'
 
   get 'categories', to: redirect('/bolmeler')
   get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
@@ -23,7 +24,9 @@ Rails.application.routes.draw do
   get 'documents/:slug', to: redirect('/senedler/%{slug}')
   get 'questions', to: redirect('/sual-cavab')
   get 'questions/:slug', to: redirect('/sual-cavab/%{slug}')
-  
+  get 'publications', to: redirect('/nesrler')
+  get 'publications/:slug', to: redirect('/nesrler/%{slug}')
+
   namespace :admin do
     resources :questions
 
@@ -43,6 +46,7 @@ Rails.application.routes.draw do
       put "remove", on: :member
     end
     resources :contacts
+    resources :publications, except: [:show, :destroy]
   end
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

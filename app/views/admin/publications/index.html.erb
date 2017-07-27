@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Publications</h1>
+<%= link_to 'New Publication', new_admin_publication_path, class: "btn btn-success" %>
+
+<br>
+<%= paginate @publications %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Isbn</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publications.each do |publication| %>
+      <tr>
+        <td><%= publication.title %></td>
+        <td><%= publication.author %></td>
+        <td><%= publication.isbn %></td>
+        <td><%= publication.price %></td>
+
+        <td><%= link_to 'Edit', edit_admin_publication_path(publication) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
