@@ -11,6 +11,7 @@ class HomeController < ApplicationController
     @interview = Article.interviews
     exclude_ids = [@interview.id]+programmes.map(&:id)+articles.map(&:id)+@blog_posts.map(&:id)
     @featured = Article.where.not(id: exclude_ids).limit(9)
+    @publications = Publication.all
   end
   def contacts
     @contact = Contact.last

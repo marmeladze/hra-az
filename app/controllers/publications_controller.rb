@@ -6,7 +6,8 @@ class PublicationsController < ApplicationController
 
   def show
     @publication = Publication.find_by(slug: params[:slug])
-    if @publication && @publication.living?
+    @others = Publication.where.not(id: @publication.id)
+    if @publication
       render 'show'
     else
       render 'home/404', status: :not_found

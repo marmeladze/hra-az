@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= @publication.title  %></h1>
+      <ol class="breadcrumb">
+        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li><%= link_to "Nəşrlər", publications_path %>
+        <li class="active"><%= @publication.title %></li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+        <%= cl_image_tag(@publication.attachment, format: :jpg, border: "2px_solid_grey", width: 300, crop: :thumb, class: "thumbnail", alt: @publication.title) %>
+         </div>
+        <div class="col-md-8">
+          <blockquote><%= @publication.summary.html_safe %></blockquote>
+          <p><small><%= @publication.author %></small></p>
+          <p>
+            <abbr title="Kitabın beynəlxalq standart nömrəsi">ISBN</abbr>:
+            <small  style="margin-left: 5px;"><%= @publication.isbn %></small>
+          </p>
+          <p>Qiymət:<small style="margin-left: 5px;"><%= @publication.price %></small></p>
+        </div>
+      </div>
+     </div>
+    <hr>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li class="active">Digər yayınlar</li>
+        </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% @others.each do |pub| %>
+        <div class="well">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <%= cl_image_tag(pub.attachment, format: :jpg, width: 200, height: 200, crop: :fill, alt: pub.title, class: "media-object") %>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to pub.title, publication_path(slug: pub.slug) %></h4>
+              <p><small><%= pub.author %></small></p>
+              <p><abbr title="Kitabın beynəlxalq standart nömrəsi">ISBN</abbr>:<small  style="margin-left: 5px;"><%= pub.isbn %></small></p>
+              <p>Qiymət:<small style="margin-left: 5px;"><%= pub.price %></small></p>
+              <details><summary><p><strong><a>Xülasə</a></strong></p></summary><p><%= strip_tags(pub.summary).slice(0, 400) %>...</p></details>
+              <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i> <%= time_ago_in_words(pub.updated_at) %> </span></li>
+              </ul>
+            </div>
+          </div>
+        </div>    
+      <% end %>
+    </div>
+  </div>
+</div>

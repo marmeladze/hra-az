@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li class="active"><%= link_to "Nəşrlər", publications_path %></li>
+      </ol>      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% @publications.each do |publication| %>    
+        <div class="well">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <%= cl_image_tag(publication.attachment, format: :jpg, width: 200, height: 200, crop: :fill, alt: publication.title, class: "media-object") %>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to publication.title, publication_path(slug: publication.slug) %></h4>
+              <p><small><%= publication.author %></small></p>
+              <p><abbr title="Kitabın beynəlxalq standart nömrəsi">ISBN</abbr>:<small  style="margin-left: 5px;"><%= publication.isbn %></small></p>
+              <p>Qiymət:<small style="margin-left: 5px;"><%= publication.price %></small></p>
+              <details><summary><p><strong><a>Xülasə</a></strong></p></summary><p><%= strip_tags(publication.summary).slice(0, 400) %>...</p></details>
+              <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i> <%= time_ago_in_words(publication.updated_at) %> </span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

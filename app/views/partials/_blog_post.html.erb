@@ -1,5 +1,5 @@
 <p>
-  <%= cl_image_tag(@article.author.image, width: 300, crop: :thumb, gravit: :face, class: "img-responsive pull-left thumbnail", alt: @article.title, style: 'margin-right: 15px; margin-bottom: 15px;') %>
+  <%= cl_image_tag(@article.author.image, width: 300, crop: :thumb, gravity: :face, class: "img-responsive pull-left thumbnail", alt: @article.title, style: 'margin-right: 15px; margin-bottom: 15px;') %>
   <%= @article.body.html_safe %>
 </p>
 <div class="row">
