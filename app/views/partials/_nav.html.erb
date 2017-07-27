@@ -1,5 +1,11 @@
-
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container" style="margin-top: -85px; height:140px;">
+  <div class="row">
+    <div class="col-md-2"><%= image_tag('/images/logo.png', height: 125, width:200, class: "pull-left") %></div>
+    <div class="col-md-10"><p style="margin-top:30px;font-family:'Crimson Text';font-size: 50px;">Baku Academy Of Human Rights Law</p></div>
+  </div>
+</div>
+</div>
+<nav class="navbar navbar-default" data-spy="affix" style="z-index: 9999;"data-offset-top="140" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -8,7 +14,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <%= link_to "HRA", root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -20,9 +25,7 @@
             <li><%= link_to category.name, category_path(slug: category.slug) %></li>  
           <% end %>
           <li><%= link_to 'Sual-Cavab', questions_path %></li>              
-          <li>
-              <%= link_to "Əlaqə", contacts_path %>
-          </li>
+          <li><%= link_to "Əlaqə", contacts_path %></li>
       </ul>
     </div>
   </div>

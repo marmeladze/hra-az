@@ -5,6 +5,7 @@
     <%= if content_for?(:title) then yield(:title) + '|' end %>
     Baku Academy of Human Rights Law
   </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='description' content='<%= yield_meta_tag(:description, 'Official web site of Baku Academy of Human Rights Law, Bakı İnsan Haqları Akademiyasının rəsmi veb saytı') %>' />
   <meta name='keywords' content='<%= yield_meta_tag(:keywords, 'human rights, insan haqları, hüquq, kurs') %>' />
   <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -12,6 +13,14 @@
   <style type="text/css">
     body * {
       border-radius: 0 !important;
+    }
+    .affix {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    .affix + .container-fluid {
+      padding-top: 35px;
     }
   </style>
   <%= csrf_meta_tags %>
