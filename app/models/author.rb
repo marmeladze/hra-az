@@ -1,9 +1,14 @@
 class Author < ActiveRecord::Base
+  before_save { self.email = email.downcase }
   paginates_per 15
   after_save :update_slug
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, :email, presence: true
+  validates :email, uniqueness: true
+
+  has_secure_password
+
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   mount_uploader :image, ImageUploader
   has_many :articles

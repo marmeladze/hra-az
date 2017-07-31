@@ -28,8 +28,13 @@
   </div>
   <div class="field">
     <%= f.label :author_id %><br>
-    <%= f.select :author_id, @authors, :prompt => "Birini seç" %>
+    <% if @article.new_record? %>
+      <%= f.select :author_id, @authors, selected: current_user.id, :prompt => "Birini seç" %>      
+    <% else %>
+      <%= f.select :author_id, @authors, :prompt => "Birini seç" %>  
+    <% end %>
   </div>
+  
   <div class="field">
     <%= f.label :category_id %><br>
     <%= f.select :category_id, @categories, :prompt => "Birini seç" %>

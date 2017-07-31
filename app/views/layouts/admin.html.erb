@@ -19,12 +19,13 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Səhifələr", admin_pages_path %></li>
           <li><%= link_to "Yazılar", admin_articles_path %></li>
-          <li><%= link_to "Müəlliflər", admin_authors_path %></li>
           <li><%= link_to "Bölmələr", admin_categories_path %></li>
           <li><%= link_to "Qərarnamələr/Qətnamələr", admin_documents_path %></li>
           <li><%= link_to "Əlaqə", admin_contacts_path %></li>
           <li><%= link_to "Nəşrlər", admin_publications_path %></li>
           <li><%= link_to "Sual-Cavab", admin_questions_path %></li>
+          <li><%= link_to "Hesab Parametrləri", edit_admin_author_path(current_user) %></li>
+          <li><%= link_to "Çıxış", logout_path, method: :delete %></li>        
         </ul>
       </nav>
     </div>

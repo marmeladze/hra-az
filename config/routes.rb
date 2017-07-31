@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/pages#index'
   get '/contacts' => 'home#contacts'
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
   resources :pages, only: [:index, :show], param: :slug, path: "sehifeler"
   resources :categories, only: [:index, :show], param: :slug, path: "bolmeler"
   resources :articles, only: [:show], param: :slug, path: "yazilar"

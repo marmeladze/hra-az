@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727061805) do
+ActiveRecord::Schema.define(version: 20170731111700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,17 @@ ActiveRecord::Schema.define(version: 20170727061805) do
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "deleted",    default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "deleted",         default: false
     t.string   "slug"
     t.string   "twitter"
     t.string   "facebook"
     t.string   "email"
+    t.string   "password_digest"
   end
 
+  add_index "authors", ["email"], name: "index_authors_on_email", unique: true, using: :btree
   add_index "authors", ["slug"], name: "index_authors_on_slug", using: :btree
 
   create_table "categories", force: :cascade do |t|
