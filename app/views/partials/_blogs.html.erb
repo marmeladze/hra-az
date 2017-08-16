@@ -37,10 +37,9 @@
     </div>
     <div class="col-md-4">
       <div class="well">
-        <h4 class="media-heading"><%= link_to @interview.title, article_path(slug: @interview.slug) %></h4>
+        <h4 class="media-heading"><%= link_to @interview.title, publication_path(slug: @interview.slug) %></h4>
 
-        <%= cl_image_tag(@interview.image, width: 300, height: 380, crop: :thumb, gravity: :face, alt: @interview.title, class: "media-object") %>
-      </div>
+        <%= cl_image_tag(@interview.attachment, format: :jpg, width: 300, height: 380, crop: :fill, alt: @interview.title, class: "media-object") %>      </div>
     </div>
   </div>
 </div>
