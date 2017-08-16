@@ -8,7 +8,7 @@ class Category < ActiveRecord::Base
   has_many :articles
 
   scope :living, -> { where(deleted: false) }
-  scope :for_navbar, -> { living.where(show_in_navbar: true) }
+  scope :for_navbar, -> { living.where(show_in_navbar: true).order(updated_at: :desc) }
   scope :blog, -> { living.where(slug: 'bloq').first }
 
   def living?
