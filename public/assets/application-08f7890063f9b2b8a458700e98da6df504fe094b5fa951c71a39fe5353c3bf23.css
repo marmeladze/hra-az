@@ -11661,3 +11661,7 @@ body {
     display: none;
   }
 }
+/* line 9, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/application.scss */
+body * {
+  border-radius: 0 !important;
+}
