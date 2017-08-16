@@ -37,7 +37,25 @@
     <%= f.file_field :image %>
     <%= cl_image_tag(@author.image_url, :width => 50, :height => 50, :crop => :fill) if @author.image? %>
   </div>
+  <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  attachContent = function() {
+    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+  }  
+</script>
+<script type="text/javascript">
+window.onload = function() {
+  if (window.location.pathname.includes("/edit")) {
+    var tv = document.querySelector("textarea").value;
+    document.querySelector(".Editor-editor").innerHTML = tv ;  
+  }    
+}
+</script>

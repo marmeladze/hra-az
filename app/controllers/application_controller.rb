@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     @categories = Category.for_navbar
     @fpages = Page.living
     @fcategories = Category.living
+    @programmes = Article.programmes
     @contact = Contact.first
     @latest = Article.living.order(updated_at: :desc).take(@fcategories.count - 2)
   end

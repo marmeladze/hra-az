@@ -49,7 +49,7 @@ module Admin
       end
 
       def author_params
-        params.require(:author).permit(:name, :image, :deleted, :email, :twitter, :facebook)
+        params.require(:author).permit(:name, :image, :deleted, :email, :twitter, :facebook, :bio)
       end
   end
 end

@@ -18,7 +18,15 @@
       <nav class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><%= link_to "Səhifələr", admin_pages_path %></li>
-          <li><%= link_to "Yazılar", admin_articles_path %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Yazılar
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% Category.living.each do |category| %>
+                <li><%= link_to category.name, admin_articles_path(category: category.id) %>
+              <% end %>
+            </ul>
+          </li>
           <li><%= link_to "Bölmələr", admin_categories_path %></li>
           <li><%= link_to "Qərarnamələr/Qətnamələr", admin_documents_path %></li>
           <li><%= link_to "Əlaqə", admin_contacts_path %></li>

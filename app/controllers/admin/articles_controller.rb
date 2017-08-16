@@ -7,7 +7,11 @@ module Admin
     layout "admin"
 
     def index
-      @articles = Article.living.order(updated_at: :desc).page params[:page]
+      if params[:category]
+        @articles = Article.search_for(params[:category]).page params[:page] 
+      else
+        @articles = Article.living.order(updated_at: :desc).page params[:page]
+      end
     end
 
     def new
@@ -21,7 +25,7 @@ module Admin
       @article = Article.new(article_params)
 
       if @article.save
-        redirect_to admin_articles_path, notice: 'Article was successfully created.'
+        redirect_to admin_articles_path(category: @article.category_id), notice: 'Article was successfully created.'
       else
         render :new
       end
@@ -29,7 +33,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to admin_articles_path, notice: 'Article was successfully updated.'
+        redirect_to admin_articles_path(category: @article.category_id), notice: 'Article was successfully updated.'
       else
         render :edit
       end
@@ -37,12 +41,12 @@ module Admin
 
     def destroy
       @article.destroy
-      redirect_to admin_articles_path, notice: 'Article was successfully destroyed.'
+      redirect_to admin_articles_path(category: @article.category_id), notice: 'Article was successfully destroyed.'
     end
 
     def remove
       @article.remove!
-      redirect_to admin_articles_path, notice: 'Article was successfully deleted.'
+      redirect_to admin_articles_path(category: @article.category_id), notice: 'Article was successfully deleted.'
     end
 
     private

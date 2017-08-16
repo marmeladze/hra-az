@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   scope :living, -> { where(deleted: false) }
+  scope :search_for, ->(category) { living.where(category_id: category) }
   scope :for_slider, -> { living.order(id: :desc).take(5) }
   scope :programmes, -> { living.where(category_id: 5).take(5) }
   scope :interviews, -> { living.order(updated_at: :desc).where(category_id: 7).first }
