@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+   <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li class="active">Müəlliflər</li>
+      </ol>
+    </div>   
+  </div>
+  <% @authors.each do |author| %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <%= cl_image_tag(author.image, width: 150, height: 170, crop: :thumb, gravity: :face, alt: author.name, class: "media-object") %>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to author.name, author_path(slug: author.slug) %></h4>
+              <p><%= strip_tags(author.bio) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+</div>
+
