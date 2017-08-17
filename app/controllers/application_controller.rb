@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     @fpages = Page.living
     @fcategories = Category.living
     @programmes = Article.programmes
-    @dcats = Document.pluck(:category, :category_slug)
+    @dcats = Document.pluck(:category, :category_slug).uniq
     @contact = Contact.first
     @latest = Article.living.order(updated_at: :desc).take(@fcategories.count - 2)
   end

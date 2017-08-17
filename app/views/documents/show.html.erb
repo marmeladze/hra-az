@@ -17,8 +17,8 @@
         <li>Tərtib olunub: <strong><%= @document.found %></strong> </li>
         <li>Qurum: <strong><%= @document.organization %></strong> </li>
         <li>Abbreviatura: <strong><%= @document.abbr %></strong> </li>
-        <li>Azərbaycan dilində: <strong><%= @document.url_az %></strong> </li>
-        <li>İngilis dilində: <strong><%= @document.url_en %></strong> </li>        
+        <li>Azərbaycan dilində: <strong><%= link_to "Yüklə", cloudinary_url(@document.attachment_az) %></strong> </li>
+        <li>İngilis dilində: <strong><%= link_to "Yüklə", cloudinary_url(@document.attachment_en) %></strong> </li>        
       </ul>
     </div>
   </div>
