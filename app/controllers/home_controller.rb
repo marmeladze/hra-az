@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @rest = articles - [@active]
     @interview = Publication.last
     exclude_ids = [@interview.id]+programmes.map(&:id)+articles.map(&:id)+@blog_posts.map(&:id)
-    @featured = Article.where.not(id: exclude_ids).limit(9)
+    @featured = Article.living.where.not(id: exclude_ids).limit(9)
     @publications = Publication.where.not(id: @interview.id)
   end
   def contacts
