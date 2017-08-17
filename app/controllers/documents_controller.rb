@@ -1,6 +1,10 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.living.page params[:page]
+    if params[:category]
+      @documents = Document.categorized(params[:category]).page params[:page]
+    else
+      @documents = Document.living.page params[:page]
+    end
   end
 
   def show

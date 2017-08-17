@@ -43,7 +43,7 @@
       <div class="col-md-12">
         <div class="col-md-3">
           <div class="card">
-            <%= cl_image_tag(@author.image, width: 300, crop: :thumb, gravit: :face, class: "img-responsive", alt: @author.title) %>    
+            <%= cl_image_tag(@author.image, width: 300, crop: :thumb, gravity: :face, class: "img-responsive", alt: @author.title) %>    
             <div class="card-container">
               <h3 class="title"><%= @author.title %></h3>
               <%= link_to @author.twitter, class: 'card-link' do  %>
@@ -59,6 +59,9 @@
           </div>
         </div>
         <div class="col-md-9">
+          <div class="well">
+            <%= @author.bio %>
+          </div>
           <% @author.blog_posts.each do |blog| %>
             <p><%= link_to blog.title, article_path(slug: blog.slug), class: 'title' %><small style="margin-left: 10px;"><%= l blog.created_at, format: '%d %B, %Y' %></small></p>
           <% end %>

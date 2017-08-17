@@ -20,6 +20,14 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :attachment_az %><br>
+    <%= f.file_field :attachment_az %>
+  </div>
+  <div class="field">
+    <%= f.label :attachment_en %><br>
+    <%= f.file_field :attachment_en %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
@@ -38,6 +46,10 @@
   <div class="field">
     <%= f.label :url_en %><br>
     <%= f.text_field :url_en %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select :category, Document::CATEGORIES, :prompt => "Birini seç" %>
   </div>
   <div class="actions">
     <%= f.submit %>
