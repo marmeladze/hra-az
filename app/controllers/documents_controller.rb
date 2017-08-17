@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
     if params[:category]
       @documents = Document.categorized(params[:category]).page params[:page]
     else
-      @documents = Document.living.page params[:page]
+      @documents = Document.living.group(:id, :category_slug).page params[:page]
     end
   end
 
