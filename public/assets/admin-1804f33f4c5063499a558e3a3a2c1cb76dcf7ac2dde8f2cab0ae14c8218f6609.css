@@ -11609,556 +11609,752 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   content: "\f1e2";
 }
 
-/*!
- * http://suyati.github.io/line-control
- * LineControl 1.1.0
- * Copyright (C) 2014, Suyati Technologies
- * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
-*/
-/* base styles */
-/* line 13, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron {
-  background-color: #67A754;
-  background-image: url(images/radial_bg.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#B3ECFF), to(#7EDEFF));
-  /* Safari 4-5, Chrome 1-9 */
-  /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-radial-gradient(circle, #B3ECFF, #7EDEFF);
-  /* Safari 5.1+, Chrome 10+ */
-  background: -moz-radial-gradient(circle, #B3ECFF, #7EDEFF);
-  /* Firefox 3.6+ */
-  background: -ms-radial-gradient(circle, #B3ECFF, #7EDEFF);
-  /* IE 10 */
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
-  color: #FFFFFF;
-  padding: 40px 0;
-  position: relative;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.075);
+@font-face {
+  font-family: "summernote";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/summernote-b7bba21001d00d8e07c8ee46ba657120620f118b093d90bc985b3a552a255a70.eot");
+  src: url("/assets/summernote-b7bba21001d00d8e07c8ee46ba657120620f118b093d90bc985b3a552a255a70.eot?#iefix") format("embedded-opentype"), url("/assets/summernote-a852fa188d48f6e182e21b38b15ce1fe2675b3aeb30daa51ea9c9077a867357a.woff") format("woff"), url("/assets/summernote-e88e8360f57e7c212bc56e6b42d0231557c4cade9ddb6ccca30a49428b7bbc60.ttf") format("truetype");
 }
-
-/* line 28, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron h1 {
-  font-family: "Roboto", sans-serif !important;
-  font-size: 45px;
-  font-weight: 300;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  padding-bottom: 20px;
-}
-
-/* line 29, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron h1 span {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-/* line 30, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron p {
-  font-family: "Roboto", sans-serif !important;
-  font-size: 30px;
-  font-weight: 300;
-  line-height: 1.25;
-  color: #444;
-}
-
-/* line 38, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* line 42, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron:after {
-  background: url("../images/pattern.png") repeat scroll center center transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/* line 53, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.jumbotron:after {
-  background-size: 400px 400px;
-}
-
-/* line 56, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.masthead {
-  color: #FFFFFF;
-  margin-bottom: 0;
-  padding: 30px 0 10px;
-}
-
-/* line 61, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-h2.demo-text {
-  font-family: "Roboto", sans-serif !important;
-  font-size: 45px;
-  font-weight: 300;
-  color: #51D2FF;
-  text-align: center;
-  margin: 20px 0;
-  line-height: 40px;
-}
-
-/* line 62, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.features {
-  padding: 20px 0 10px 0;
-  background: #EEE;
-  font-family: "Roboto", sans-serif !important;
-  font-size: 25px;
-  line-height: 35px;
-  text-align: center;
-  font-weight: 300;
-}
-
-/* line 63, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.footer {
-  border-top: 1px solid #DDD;
-  margin: 20px 0 10px 0;
-  padding-top: 10px;
-  font-size: 12px;
-}
-
-/* Editor Styles */
-/* line 67, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.Editor-container {
-  margin-top: 10px;
-  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* line 72, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv, #statusbar {
-  background-color: #f5f5f5;
-  *background-color: #e6e6e6;
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-  background-repeat: repeat-x;
-  border: 1px solid #cccccc;
-  *border: 0;
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-bottom-color: #b3b3b3;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-  *zoom: 1;
-}
-
-/* line 91, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv {
-  border-radius: 3px 3px 0 0;
-  border-bottom: none;
-  min-height: 25px;
-  padding: 5px 0;
-}
-
-/* line 97, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv div:first-child {
-  margin-left: 3px;
-}
-
-/* line 98, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv .dropdown {
-  float: left;
-}
-
-/* line 99, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv .dropdown-toggle {
-  font-size: 14px;
-}
-
-/* line 100, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv .dropdown-toggle .caret {
-  margin-left: 5px;
-  border-top-color: #999;
-}
-
-/* line 101, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#menuBarDiv a.btn {
-  position: relative;
-  margin-bottom: 3px;
-}
-
-/* line 103, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-  height: auto;
-  margin-bottom: 10px;
-}
-
-/* line 105, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#statusbar {
-  min-height: 30px;
-  border-radius: 0 0 3px  3px;
-  border-top: none;
-  line-height: 30px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-}
-
-/* line 112, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#statusbar .label {
-  float: right;
-  margin: 6px 10px 0 0;
-  background: #BBB;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-  padding: 2px 4px;
-  font-size: 11.844px;
-  line-height: 14px;
-}
-
-/* line 121, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.Editor-editor {
-  height: 300px;
-  padding: 1%;
-  border: 1px solid #EEE;
-  border-radius: 0;
-  word-wrap: break-word;
-  background-color: #FFF;
-}
-
-/* line 129, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#paletteCntr ul {
-  width: 145px;
-  float: left;
-  z-index: 999;
-  margin: 0 10px;
-}
-
-/* line 136, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#paletteCntr li {
-  cursor: pointer;
-  display: block;
-  height: 16px;
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: 16px;
-  margin: 1px;
-}
-
-/* line 147, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#paletteCntr li div {
-  text-align: left;
-  margin: 0;
-  font-size: 12px;
-}
-
-/* line 148, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-div.activeColour {
-  position: absolute;
-  display: inline;
-  left: 0;
-  top: 30px;
-  background: #E8E8E8;
-  padding-bottom: 10px;
-  z-index: 10000;
-}
-
-/* line 159, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-#colorpellete, #bg_colorpellete {
-  float: left;
-}
-
-/* line 161, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.bg_activeColour {
-  position: absolute;
-  display: inline;
-  float: left;
-}
-
-/* line 168, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.specialCntr {
-  background-color: #E8E8E8 !important;
-  display: inline;
-  position: absolute;
-  width: 176px;
-  top: 30px;
-  left: 0;
-}
-
-/* line 177, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.specialCntr ul {
-  float: left;
-  margin: 10px;
-  white-space: normal;
-  -webkit-padding-start: 0px;
-  -moz-padding-start: 0px;
-}
-
-/* line 178, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.specialCntr ul li {
-  list-style: none;
-  float: left;
-  font-size: 12px;
-  width: 20px;
-  height: 20px;
-  background: #FFF;
-  margin: 3px;
-  color: #333;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* line 179, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.specialCntr ul li:hover {
-  background: #666;
-  color: #FFF;
-}
-
-/* line 180, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-pre {
-  white-space: pre-wrap;
-  /* css-3 */
-  white-space: -moz-pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;
-  /* Opera 4-6 */
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
-  word-wrap: break-word;
-  /* Internet Explorer 5.5+ */
-}
-
-/* line 187, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.on {
-  display: block;
-  position: relative;
-}
-
-/* line 188, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.fullscreen {
-  position: fixed;
-  background: #FFF;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  margin: 0;
-}
-
-/* line 189, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.fullscreen #statusbar {
-  position: fixed;
-  bottom: 0;
-  border-top: 1px solid #DDD;
-}
-
-/* line 190, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.fullscreen #contentarea {
-  border: none;
-}
-
-/***Custome Added Css for Left Tabs***/
-/* line 193, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-below > .nav-tabs,
-.tabs-right > .nav-tabs,
-.tabs-left > .nav-tabs {
-  border-bottom: 0;
-}
-
-/* line 198, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left ul {
-  -webkit-padding-start: 0px;
-}
-
-/* line 201, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs > li,
-.tabs-right > .nav-tabs > li {
-  float: none;
-}
-
-/* line 205, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs > li > a,
-.tabs-right > .nav-tabs > li > a {
-  min-width: 74px;
-  margin-right: 0;
-  margin-bottom: 3px;
-}
-
-/* line 211, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs {
-  float: left;
-  margin-right: 19px;
-  border-right: 1px solid #ddd;
-}
-
-/* line 216, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs > li > a {
-  margin-right: -1px;
-  -webkit-border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px;
-  border-radius: 4px 0 0 4px;
-}
-
-/* line 222, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs > li > a:hover,
-.tabs-left > .nav-tabs > li > a:focus {
-  border-color: #eeeeee #dddddd #eeeeee #eeeeee;
-  outline: none;
-}
-
-/* line 227, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.tabs-left > .nav-tabs .active > a,
-.tabs-left > .nav-tabs .active > a:hover,
-.tabs-left > .nav-tabs .active > a:focus {
-  border-color: #ddd transparent #ddd #ddd;
-  *border-right-color: #ffffff;
-  color: #00b0f5 !important;
-  outline: none;
-}
-
-/**form control width**/
-@-moz-document url-prefix() {
-  /* line 237, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-  .form-control {
-    padding: 6px 12px 10px 12px;
-  }
-}
-/* line 241, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.form-control-width {
-  width: 100px;
-}
-
-/* line 244, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.form-control-link {
-  width: 204px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+[class^="note-icon-"]:before, [class*=" note-icon-"]:before {
   display: inline-block;
-  margin-bottom: 5px;
+  font: normal normal normal 14px summernote;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-rendering: auto;
+  text-transform: none;
+  vertical-align: middle;
+  speak: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-center:before {
+  content: "\f101";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-indent:before {
+  content: "\f102";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-justify:before {
+  content: "\f103";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-left:before {
+  content: "\f104";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-outdent:before {
+  content: "\f105";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align-right:before {
+  content: "\f106";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-align:before {
+  content: "\f107";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-arrows-alt:before {
+  content: "\f108";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-bold:before {
+  content: "\f109";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-caret:before {
+  content: "\f10a";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-chain-broken:before {
+  content: "\f10b";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-circle:before {
+  content: "\f10c";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-close:before {
+  content: "\f10d";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-code:before {
+  content: "\f10e";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-eraser:before {
+  content: "\f10f";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-font:before {
+  content: "\f110";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-frame:before {
+  content: "\f111";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-italic:before {
+  content: "\f112";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-link:before {
+  content: "\f113";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-magic:before {
+  content: "\f114";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-menu-check:before {
+  content: "\f115";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-minus:before {
+  content: "\f116";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-orderedlist:before {
+  content: "\f117";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-pencil:before {
+  content: "\f118";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-picture:before {
+  content: "\f119";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-question:before {
+  content: "\f11a";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-redo:before {
+  content: "\f11b";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-special-character:before {
+  content: "\f11c";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-square:before {
+  content: "\f11d";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-strikethrough:before {
+  content: "\f11e";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-subscript:before {
+  content: "\f11f";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-summernote:before {
+  content: "\f120";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-superscript:before {
+  content: "\f121";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-table:before {
+  content: "\f122";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-text-height:before {
+  content: "\f123";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-trash:before {
+  content: "\f124";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-underline:before {
+  content: "\f125";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-undo:before {
+  content: "\f126";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-unorderedlist:before {
+  content: "\f127";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-icon-video:before {
+  content: "\f128";
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor {
+  position: relative;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-dropzone {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  color: #87cefa;
+  background-color: white;
+  opacity: .95;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-dropzone .note-dropzone-message {
+  display: table-cell;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-dropzone.hover {
+  color: #098ddf;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.dragover .note-dropzone {
+  display: table;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-editing-area {
+  position: relative;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-editing-area .note-editable {
+  outline: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-editing-area .note-editable sup {
+  vertical-align: super;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor .note-editing-area .note-editable sub {
+  vertical-align: sub;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame {
+  border: 1px solid #a9a9a9;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame.codeview .note-editing-area .note-editable {
+  display: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame.codeview .note-editing-area .note-codable {
+  display: block;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-editing-area {
+  overflow: hidden;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-editing-area .note-editable {
+  padding: 10px;
+  overflow: auto;
+  color: #000;
+  background-color: #fff;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-editing-area .note-editable[contenteditable="false"] {
+  background-color: #e5e5e5;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-editing-area .note-codable {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0;
+  font-family: Menlo,Monaco,monospace,sans-serif;
+  font-size: 14px;
+  color: #ccc;
+  background-color: #222;
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  resize: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100% !important;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame.fullscreen .note-editable {
+  background-color: white;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame.fullscreen .note-resizebar {
+  display: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-statusbar {
+  background-color: #f5f5f5;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-statusbar .note-resizebar {
+  width: 100%;
+  height: 8px;
+  padding-top: 1px;
+  cursor: ns-resize;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-statusbar .note-resizebar .note-icon-bar {
+  width: 20px;
+  margin: 1px auto;
+  border-top: 1px solid #a9a9a9;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-editor.note-frame .note-placeholder {
+  padding: 10px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover.popover {
+  max-width: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover.popover .popover-content a {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover.popover .arrow {
+  left: 20px !important;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content, .panel-heading.note-toolbar {
+  padding: 0 0 5px 5px;
+  margin: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content > .btn-group, .panel-heading.note-toolbar > .btn-group {
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .btn-group .note-table, .panel-heading.note-toolbar .btn-group .note-table {
+  min-width: 0;
+  padding: 5px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .btn-group .note-table .note-dimension-picker, .panel-heading.note-toolbar .btn-group .note-table .note-dimension-picker {
+  font-size: 18px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .btn-group .note-table .note-dimension-picker .note-dimension-picker-mousecatcher, .panel-heading.note-toolbar .btn-group .note-table .note-dimension-picker .note-dimension-picker-mousecatcher {
+  position: absolute !important;
+  z-index: 3;
+  width: 10em;
+  height: 10em;
+  cursor: pointer;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .btn-group .note-table .note-dimension-picker .note-dimension-picker-unhighlighted, .panel-heading.note-toolbar .btn-group .note-table .note-dimension-picker .note-dimension-picker-unhighlighted {
+  position: relative !important;
+  z-index: 1;
+  width: 5em;
+  height: 5em;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASAgMAAAAroGbEAAAACVBMVEUAAIj4+Pjp6ekKlAqjAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfYAR0BKhmnaJzPAAAAG0lEQVQI12NgAAOtVatWMTCohoaGUY+EmIkEAEruEzK2J7tvAAAAAElFTkSuQmCC") repeat;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .btn-group .note-table .note-dimension-picker .note-dimension-picker-highlighted, .panel-heading.note-toolbar .btn-group .note-table .note-dimension-picker .note-dimension-picker-highlighted {
+  position: absolute !important;
+  z-index: 2;
+  width: 1em;
+  height: 1em;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASAgMAAAAroGbEAAAACVBMVEUAAIjd6vvD2f9LKLW+AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfYAR0BKwNDEVT0AAAAG0lEQVQI12NgAAOtVatWMTCohoaGUY+EmIkEAEruEzK2J7tvAAAAAElFTkSuQmCC") repeat;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-style h1, .panel-heading.note-toolbar .note-style h1, .note-popover .popover-content .note-style h2, .panel-heading.note-toolbar .note-style h2, .note-popover .popover-content .note-style h3, .panel-heading.note-toolbar .note-style h3, .note-popover .popover-content .note-style h4, .panel-heading.note-toolbar .note-style h4, .note-popover .popover-content .note-style h5, .panel-heading.note-toolbar .note-style h5, .note-popover .popover-content .note-style h6, .panel-heading.note-toolbar .note-style h6, .note-popover .popover-content .note-style blockquote, .panel-heading.note-toolbar .note-style blockquote {
+  margin: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-toggle, .panel-heading.note-toolbar .note-color .dropdown-toggle {
+  width: 20px;
+  padding-left: 5px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu, .panel-heading.note-toolbar .note-color .dropdown-menu {
+  min-width: 340px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group {
+  margin: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group:first-child, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group:first-child {
+  margin: 0 5px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group .note-palette-title, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group .note-palette-title {
+  margin: 2px 7px;
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group .note-color-reset, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group .note-color-reset {
+  width: 100%;
+  padding: 0 3px;
+  margin: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group .note-color-row, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group .note-color-row {
+  height: 20px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color .dropdown-menu .btn-group .note-color-reset:hover, .panel-heading.note-toolbar .note-color .dropdown-menu .btn-group .note-color-reset:hover {
+  background: #eee;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-para .dropdown-menu, .panel-heading.note-toolbar .note-para .dropdown-menu {
+  min-width: 216px;
+  padding: 5px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-para .dropdown-menu > div:first-child, .panel-heading.note-toolbar .note-para .dropdown-menu > div:first-child {
   margin-right: 5px;
 }
 
-/* line 250, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.form-control-button-right {
-  width: 204px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu, .panel-heading.note-toolbar .dropdown-menu {
+  min-width: 90px;
 }
 
-/* line 253, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.inline-form-control {
-  display: inline !important;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu.right, .panel-heading.note-toolbar .dropdown-menu.right {
+  right: 0;
+  left: auto;
 }
 
-/* line 257, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.btn-group + .btn-group {
-  margin-left: 5px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu.right::before, .panel-heading.note-toolbar .dropdown-menu.right::before {
+  right: 9px;
+  left: auto !important;
 }
 
-/* line 260, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.activeColour ul {
-  -webkit-padding-start: 0px;
-  -moz-padding-start: 0px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu.right::after, .panel-heading.note-toolbar .dropdown-menu.right::after {
+  right: 10px;
+  left: auto !important;
 }
 
-/* line 264, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-h1 {
-  margin-top: 10px;
-  line-height: 40px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu.note-check li a i, .panel-heading.note-toolbar .dropdown-menu.note-check li a i {
+  color: deepskyblue;
+  visibility: hidden;
 }
 
-/* line 268, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.col-lg-6 nth:child(1) {
-  margin-left: 0px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .dropdown-menu.note-check li a.checked i, .panel-heading.note-toolbar .dropdown-menu.note-check li a.checked i {
+  visibility: visible;
 }
 
-/* line 271, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.nopadding {
-  padding: 0px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-fontsize-10, .panel-heading.note-toolbar .note-fontsize-10 {
+  font-size: 10px;
 }
 
-/* line 274, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.nopadding-right {
-  padding-right: 0px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color-palette, .panel-heading.note-toolbar .note-color-palette {
+  line-height: 1;
 }
 
-/* line 277, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.modal {
-  overflow-y: auto;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color-palette div .note-color-btn, .panel-heading.note-toolbar .note-color-palette div .note-color-btn {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #fff;
 }
 
-/* line 280, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.padding-top {
-  padding-top: 10px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-popover .popover-content .note-color-palette div .note-color-btn:hover, .panel-heading.note-toolbar .note-color-palette div .note-color-btn:hover {
+  border: 1px solid #000;
 }
 
-/*** Drop Down Menu***/
-/* line 284, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu {
-  position: relative;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-dialog > div {
+  display: none;
 }
 
-/* line 286, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px 6px;
-  border-radius: 0 6px 6px 6px;
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-dialog .form-group {
+  margin-right: 0;
+  margin-left: 0;
 }
 
-/* line 287, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu:hover > .dropdown-menu {
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-dialog .note-modal-form {
+  margin: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-dialog .note-image-dialog .note-dropzone {
+  min-height: 100px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  line-height: 4;
+  color: lightgray;
+  text-align: center;
+  border: 4px dashed lightgray;
+}
+
+@-moz-document url-prefix() {
+  /* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+  .note-image-input {
+    height: auto;
+  }
+}
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-placeholder {
+  position: absolute;
+  display: none;
+  color: gray;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection {
+  position: absolute;
+  display: none;
+  border: 1px solid black;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection > div {
+  position: absolute;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-selection-bg {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  -webkit-opacity: .3;
+  -khtml-opacity: .3;
+  -moz-opacity: .3;
+  opacity: .3;
+  -ms-filter: alpha(opacity=30);
+  filter: alpha(opacity=30);
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-handle {
+  width: 7px;
+  height: 7px;
+  border: 1px solid black;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-holder {
+  width: 7px;
+  height: 7px;
+  border: 1px solid black;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-sizing {
+  width: 7px;
+  height: 7px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-nw {
+  top: -5px;
+  left: -5px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-ne {
+  top: -5px;
+  right: -5px;
+  border-bottom: 0;
+  border-left: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-sw {
+  bottom: -5px;
+  left: -5px;
+  border-top: 0;
+  border-right: 0;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-se {
+  right: -5px;
+  bottom: -5px;
+  cursor: se-resize;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-se.note-control-holder {
+  cursor: default;
+  border-top: 0;
+  border-left: none;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-handle .note-control-selection .note-control-selection-info {
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  margin: 5px;
+  font-size: 12px;
+  color: white;
+  background-color: black;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-opacity: .7;
+  -khtml-opacity: .7;
+  -moz-opacity: .7;
+  opacity: .7;
+  -ms-filter: alpha(opacity=70);
+  filter: alpha(opacity=70);
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-hint-popover {
+  min-width: 100px;
+  padding: 2px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-hint-popover .popover-content {
+  max-height: 150px;
+  padding: 3px;
+  overflow: auto;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-hint-popover .popover-content .note-hint-group .note-hint-item {
+  display: block !important;
+  padding: 3px;
+}
+
+/* line 1, /home/ziya/.rvm/gems/ruby-2.3.1/gems/summernote-rails-0.8.3.0/vendor/assets/stylesheets/summernote.css */
+.note-hint-popover .popover-content .note-hint-group .note-hint-item.active, .note-hint-popover .popover-content .note-hint-group .note-hint-item:hover {
   display: block;
-}
-
-/* line 288, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu > a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-
-/* line 289, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu:hover > a:after {
-  border-left-color: #ffffff;
-}
-
-/* line 290, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu.pull-left {
-  float: none;
-}
-
-/* line 290, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-submenu.pull-left > .dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
-}
-
-/* line 291, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
-  color: #fff;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.4;
+  color: white;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #08c, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #08c, #0077b3);
-  background-image: -o-linear-gradient(top, #08c, #0077b3);
-  background-image: linear-gradient(to bottom, #08c, #0077b3);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc',endColorstr='#ff0077b3',GradientType=0);
-}
-
-/* line 303, /home/ziya/Projects/ruby/rails/hra/app/assets/stylesheets/editor.scss */
-.dropdown-menu > li > a {
+  white-space: nowrap;
   cursor: pointer;
+  background-color: #428bca;
+  outline: 0;
 }
