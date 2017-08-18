@@ -26,17 +26,17 @@
 </div>
 <script type="text/javascript">
   attachContent = function() {
-    document.querySelector("textarea").value = document.querySelector(".Editor-editor").innerHTML;
+    document.querySelector("textarea").value = document.querySelector(".note-editable").innerHTML;
   }
 
   window.onload = function() {
     if (window.location.pathname.includes("/edit")) {
       var tv = document.querySelector("textarea").value;
-      document.querySelector(".Editor-editor").innerHTML = tv ;  
+      document.querySelector(".note-editable").innerHTML = tv ;  
     }
     
     if (window.location.pathname.includes("/new")) {
-    document.querySelector('.Editor-editor').addEventListener('input', function(){
+    document.querySelector(".note-editable").addEventListener('input', function(){
       console.log('someone is updating me');
       attachContent();
     });

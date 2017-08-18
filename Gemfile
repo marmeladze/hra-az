@@ -7,6 +7,7 @@ gem 'rails', '4.2.8'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'summernote-rails'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bootswatch-rails', '~> 3'
 gem "font-awesome-rails"

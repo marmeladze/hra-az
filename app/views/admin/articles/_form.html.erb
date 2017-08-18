@@ -46,14 +46,14 @@
 </div>
 <script type="text/javascript">
   attachContent = function() {
-    document.querySelector("textarea").value =document.querySelector(".Editor-editor").innerHTML;
+    document.querySelector("textarea").value =document.querySelector(".note-editable").innerHTML
   }  
 </script>
 <script type="text/javascript">
 window.onload = function() {
   if (window.location.pathname.includes("/edit")) {
     var tv = document.querySelector("textarea").value;
-    document.querySelector(".Editor-editor").innerHTML = tv ;  
+    document.querySelector(".note-editable").innerHTML = tv ;  
   }    
 }
 </script>
