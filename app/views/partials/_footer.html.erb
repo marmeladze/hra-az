@@ -6,29 +6,29 @@
             <div class="row">
               <div class="col-md-2 col-lg-2">
                 <strong><p>&copy; HRA <%= Date.current.year %></p></strong>
-                  <p><%= link_to "Sənədlər", documents_path %></p>
-                  <p><%= link_to "Sual-Cavab", questions_path %></p>
+                  <p><%= link_to I18n.t(:documents), documents_path %></p>
+                  <p><%= link_to I18n.t(:faq), questions_path %></p>
               </div>
               <div class="col-md-2 col-lg-2">
-                <strong><p>Bölmələr</p></strong>
+                <strong><p><%= t(:cateogories) %></p></strong>
                 <% @fcategories.each do |c| %>
                   <p><%= link_to c.name, category_path(slug: c.slug)  %></p>
                 <% end %>
               </div>
               <div class="col-md-2 col-lg-2">
-                <strong><p>Səhifələr</p></strong>
+                <strong><p><%= t(:pages) %></p></strong>
                 <% @fpages.each do |pg| %>
                   <p><%= link_to pg.title, page_path(slug: pg.slug)  %></p>
                 <% end %>
               </div>
               <div class="col-md-4 col-lg-4">
-                <strong><p>Son yazılar</p></strong>
+                <strong><p><%= t(:latest_articles) %></p></strong>
                 <% @latest.each do |article| %>
                   <p><%= link_to article.title, article_path(slug: article.slug) %></p>
                 <% end %>
               </div>
               <div class="col-md-2 col-lg-2">
-                  <strong><p>Əlaqə<p></strong>
+                  <strong><p><%= t(:contacts) %><p></strong>
                   <p><%= @contact.phone %></p>
                   <p><%= link_to "Twitter", @contact.twitter %></p>
                   <p><%= link_to "Facebook", @contact.facebook %></p>                  

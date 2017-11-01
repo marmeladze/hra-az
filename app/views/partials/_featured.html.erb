@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb">
-          <li class="active">Seçilmiş</li>
+          <li class="active"><%= t(:featured) %></li>
         </ol>
     </div>
   </div>
@@ -27,7 +27,7 @@
           <div class="panel-body">
             <h1 class='featured-header'><%= article.title %></h1>
             <p><%= "#{strip_tags(article.body.html_safe).slice(0, 200)} ..." %></p>
-            <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "btn btn-primary" %>
+            <%= link_to I18n.t(:read_more), article_path(slug: article.slug), class: "btn btn-primary" %>
           </div>
         </div>
       </div>

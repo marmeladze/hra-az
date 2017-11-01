@@ -49,7 +49,7 @@ module Admin
       end
 
       def document_params
-        params.require(:document).permit(:abbr, :title, :found, :description, :category, :attachment_az, :attachment_en, :organization, :url_az, :url_en, :deleted)
+        params.require(:document).permit(:organization_en, :abbr_en, :title_en, :description_en, :abbr_az, :title_az, :found, :description_az, :category, :attachment_az, :attachment_en, :organization_az, :url_az, :url_en, :deleted)
       end
   end
 end

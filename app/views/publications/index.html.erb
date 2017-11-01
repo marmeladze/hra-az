@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <ol class="breadcrumb">
         <li><%= link_to "Ana Səhifə", root_path  %></li>
-        <li class="active"><%= link_to "Nəşrlər", publications_path %></li>
+        <li class="active"><%= link_to I18n.t(:publications), publications_path %></li>
       </ol>      
     </div>
   </div>
@@ -19,8 +19,8 @@
               <h4 class="media-heading"><%= link_to publication.title, publication_path(slug: publication.slug) %></h4>
               <p><small><%= publication.author %></small></p>
               <p><abbr title="Kitabın beynəlxalq standart nömrəsi">ISBN</abbr>:<small  style="margin-left: 5px;"><%= publication.isbn %></small></p>
-              <p>Qiymət:<small style="margin-left: 5px;"><%= publication.price %></small></p>
-              <details><summary><p><strong><a>Xülasə</a></strong></p></summary><p><%= strip_tags(publication.summary).slice(0, 400) %>...</p></details>
+              <p><%= t(:price) %>:<small style="margin-left: 5px;"><%= publication.price %></small></p>
+              <details><summary><p><strong><a><%= t(:summary) %></a></strong></p></summary><p><%= strip_tags(publication.summary).slice(0, 400) %>...</p></details>
               <ul class="list-inline list-unstyled">
                 <li><span><i class="glyphicon glyphicon-calendar"></i> <%= time_ago_in_words(publication.updated_at) %> </span></li>
               </ul>

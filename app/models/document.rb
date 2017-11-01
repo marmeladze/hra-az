@@ -2,6 +2,8 @@ class Document < ActiveRecord::Base
   paginates_per 15
   after_save :update_slugs
 
+  translates :abbr, :title, :organization, :description
+
   mount_uploader :attachment_en, ImageUploader
   mount_uploader :attachment_az, ImageUploader
 

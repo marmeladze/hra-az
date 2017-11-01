@@ -52,7 +52,7 @@ module Admin
     private
       def set_related
         @authors = Author.pluck(:name, :id)
-        @categories = Category.where(deleted: false).pluck(:name, :id)
+        @categories = Category.where(deleted: false).pluck(:name_az, :id)
       end
       
       def set_article
@@ -60,7 +60,7 @@ module Admin
       end
 
       def article_params
-        params.require(:article).permit(:title, :image, :body, :author_id, :category_id)
+        params.require(:article).permit(:title_en, :title_az, :image, :body_az, :body_en, :author_id, :category_id)
       end
   end
 end

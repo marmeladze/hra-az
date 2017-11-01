@@ -50,7 +50,7 @@ module Admin
       end
 
       def category_params
-        params.require(:category).permit(:name, :show_in_navbar, :deleted)
+        params.require(:category).permit(:name_az, :name_en, :show_in_navbar, :deleted)
       end
   end
 end

@@ -12,12 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title_az %><br>
+    <%= f.text_field :title_az %>
   </div>
   <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_area :answer %>
+    <%= f.label :title_en %><br>
+    <%= f.text_field :title_en %>
+  </div>
+  <div class="field">
+    <%= f.label :answer_az %><br>
+    <%= f.text_area :answer_az %>
+  </div>
+  <div class="field">
+    <%= f.label :answer_en %><br>
+    <%= f.text_area :answer_en %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -26,21 +34,18 @@
 </div>
 <script type="text/javascript">
   attachContent = function() {
-    document.querySelector("textarea").value = document.querySelector(".note-editable").innerHTML;
-  }
+    document.getElementById("question_answer_az").value = document.querySelector(".note-editable")[0].innerHTML;
+    document.getElementById("question_answer_en").value = document.querySelector(".note-editable")[1].innerHTML;
+  }  
+</script>
+<script type="text/javascript">
+window.onload = function() {
+  if (window.location.pathname.includes("/edit")) {
+    var body_az = document.getElementById("question_answer_az").value;
+    var body_en = document.getElementById("question_answer_en").value;
 
-  window.onload = function() {
-    if (window.location.pathname.includes("/edit")) {
-      var tv = document.querySelector("textarea").value;
-      document.querySelector(".note-editable").innerHTML = tv ;  
-    }
-    
-    if (window.location.pathname.includes("/new")) {
-    document.querySelector(".note-editable").addEventListener('input', function(){
-      console.log('someone is updating me');
-      attachContent();
-    });
-  }
+    document.querySelector(".note-editable")[0].innerHTML = body_az;
+    document.querySelector(".note-editable")[1].innerHTML = body_en;  
+  }    
 }
-
 </script>

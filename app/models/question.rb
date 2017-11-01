@@ -2,7 +2,9 @@ class Question < ActiveRecord::Base
   paginates_per 15
   after_save :update_slug
 
-  validates :title, :answer, presence: true
+  translates :title, :answer
+
+  validates :title_az, :answer_az, presence: true
 
   def anchorize
     "#"+slug

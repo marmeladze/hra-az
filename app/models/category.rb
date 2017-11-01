@@ -2,8 +2,10 @@ class Category < ActiveRecord::Base
   paginates_per 15
   after_save :update_slug
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  translates :name
+
+  validates :name_az, presence: true
+  validates :name_az, uniqueness: true
   
   has_many :articles
 

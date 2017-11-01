@@ -1,36 +1,38 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+
+  scope "(:locale)", locale: /en|az/ do 
+    root 'home#index'
+    get '/contacts' => 'home#contacts'
+
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    delete '/logout' => 'sessions#destroy'
+
+    resources :pages, only: [:index, :show], param: :slug, path: "sehifeler"
+    resources :categories, only: [:index, :show], param: :slug, path: "bolmeler"
+    resources :articles, only: [:show], param: :slug, path: "yazilar"
+    resources :authors, only: [:index, :show], param: :slug, path: "muellifler"
+    resources :documents, only: [:index, :show], param: :slug, path: "senedler"
+    resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
+    resources :publications, only: [:index, :show], param: :slug, path: 'nesrler'
+
+    get 'categories', to: redirect('/bolmeler')
+    get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
+    get 'pages', to: redirect('/sehifeler')
+    get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
+    get 'articles/:slug', to: redirect('/yazilar/%{slug}')
+    get 'authors', to: redirect('/muellifler')
+    get 'authors/:slug', to: redirect('/muellifler/%{slug}')
+    get 'documents', to: redirect('/senedler')
+    get 'documents/:slug', to: redirect('/senedler/%{slug}')
+    get 'questions', to: redirect('/sual-cavab')
+    get 'questions/:slug', to: redirect('/sual-cavab/%{slug}')
+    get 'publications', to: redirect('/nesrler')
+    get 'publications/:slug', to: redirect('/nesrler/%{slug}')
+  end
 
   get '/admin' => 'admin/pages#index'
-  get '/contacts' => 'home#contacts'
-
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
-
-  resources :pages, only: [:index, :show], param: :slug, path: "sehifeler"
-  resources :categories, only: [:index, :show], param: :slug, path: "bolmeler"
-  resources :articles, only: [:show], param: :slug, path: "yazilar"
-  resources :authors, only: [:index, :show], param: :slug, path: "muellifler"
-  resources :documents, only: [:index, :show], param: :slug, path: "senedler"
-  resources :questions, only: [:index, :show], param: :slug, path: "sual-cavab"
-  resources :publications, only: [:index, :show], param: :slug, path: 'nesrler'
-
-  get 'categories', to: redirect('/bolmeler')
-  get 'categories/:slug', to: redirect('/bolmeler/%{slug}')
-  get 'pages', to: redirect('/sehifeler')
-  get 'pages/:slug', to: redirect('/sehifeler/%{slug}')
-  get 'articles/:slug', to: redirect('/yazilar/%{slug}')
-  get 'authors', to: redirect('/muellifler')
-  get 'authors/:slug', to: redirect('/muellifler/%{slug}')
-  get 'documents', to: redirect('/senedler')
-  get 'documents/:slug', to: redirect('/senedler/%{slug}')
-  get 'questions', to: redirect('/sual-cavab')
-  get 'questions/:slug', to: redirect('/sual-cavab/%{slug}')
-  get 'publications', to: redirect('/nesrler')
-  get 'publications/:slug', to: redirect('/nesrler/%{slug}')
-
   namespace :admin do
     resources :questions
 

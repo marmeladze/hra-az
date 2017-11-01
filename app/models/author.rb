@@ -3,6 +3,8 @@ class Author < ActiveRecord::Base
   paginates_per 15
   after_save :update_slug
 
+  translates :bio
+
   validates :name, :email, presence: true
   validates :email, uniqueness: true
 

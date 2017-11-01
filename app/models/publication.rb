@@ -2,6 +2,8 @@ class Publication < ActiveRecord::Base
   paginates_per 15
   after_save :update_slug
 
+  translates :title, :summary
+
   mount_uploader :attachment, ImageUploader
 
   def update_slug

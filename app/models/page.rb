@@ -2,8 +2,10 @@ class Page < ActiveRecord::Base
   paginates_per 15
   after_save :update_slug
 
-  validates :title, uniqueness: true
-  validates :title, :body, presence: true
+  translates :title, :body
+
+  validates :title_az, uniqueness: true
+  validates :title_az, :body_az, presence: true
 
   mount_uploader :image, ImageUploader
   

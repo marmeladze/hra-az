@@ -42,7 +42,7 @@ module Admin
 
 
     def publication_params
-      params.require(:publication).permit(:title, :author, :isbn, :price, :summary, :contents, :attachment)
+      params.require(:publication).permit(:title_az, :title_en, :author, :isbn, :price, :summary_az, :summary_en, :contents_az, :contents_en, :attachment)
     end
   end
 end

@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title_az %><br>
+    <%= f.text_field :title_az %>
+  </div>
+  <div class="field">
+    <%= f.label :title_en %><br>
+    <%= f.text_field :title_en %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
@@ -26,8 +30,12 @@
     <%= f.check_box :show_in_navbar %>
   </div>  
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.label :body_az %><br>
+    <%= f.text_area :body_az %>
+  </div>
+  <div class="field">
+    <%= f.label :body_en %><br>
+    <%= f.text_area :body_en %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -35,14 +43,18 @@
 <% end %>
 <script type="text/javascript">
   attachContent = function() {
-    document.querySelector("textarea").value =document.querySelector(".note-editable").innerHTML
+    document.getElementById("page_body_az").value = document.querySelector(".note-editable")[0].innerHTML;
+    document.getElementById("page_body_en").value = document.querySelector(".note-editable")[1].innerHTML;
   }  
 </script>
 <script type="text/javascript">
 window.onload = function() {
   if (window.location.pathname.includes("/edit")) {
-    var tv = document.querySelector("textarea").value;
-    document.querySelector(".note-editable").innerHTML = tv ;  
+    var body_az = document.getElementById("page_body_az").value;
+    var body_en = document.getElementById("page_body_en").value;
+
+    document.querySelector(".note-editable")[0].innerHTML = body_az;
+    document.querySelector(".note-editable")[1].innerHTML = body_en;  
   }    
 }
 </script>

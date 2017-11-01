@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">404
-        <small>Səhifə tapılmadı</small>
+        <small><%= t(:not_found) %></small>
       </h1>
       <ol class="breadcrumb">
-        <li><%= link_to "Ana Səhifə", root_path  %></li>
+        <li><%= link_to I18n.t(:home_page), root_path  %></li>
         <li class="active">404</li>
       </ol>
     </div>

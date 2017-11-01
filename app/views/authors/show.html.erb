@@ -35,8 +35,8 @@
   <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><%= link_to "Ana Səhifə", root_path  %></li>
-          <li><%= link_to "Müəlliflər", authors_path  %></li>
+          <li><%= link_to I18n.t(:home_page), root_path  %></li>
+          <li><%= link_to I18n.t(:authors), authors_path  %></li>
           <li class="active"><%= @author.name %></li>
         </ol>
     </div>

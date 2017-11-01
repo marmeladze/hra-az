@@ -38,8 +38,12 @@
     <%= cl_image_tag(@author.image_url, :width => 50, :height => 50, :crop => :fill) if @author.image? %>
   </div>
   <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+    <%= f.label :bio_az %><br>
+    <%= f.text_area :bio_az %>
+  </div>
+  <div class="field">
+    <%= f.label :bio_en %><br>
+    <%= f.text_area :bio_en %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -47,14 +51,18 @@
 <% end %>
 <script type="text/javascript">
   attachContent = function() {
-    document.querySelector("textarea").value =document.querySelector(".note-editable").innerHTML
+    document.getElementById("author_bio_az").value = document.querySelector(".note-editable")[0].innerHTML;
+    document.getElementById("author_bio_en").value = document.querySelector(".note-editable")[1].innerHTML;
   }  
 </script>
 <script type="text/javascript">
 window.onload = function() {
   if (window.location.pathname.includes("/edit")) {
-    var tv = document.querySelector("textarea").value;
-    document.querySelector(".note-editable").innerHTML = tv ;  
+    var body_az = document.getElementById("author_bio_az").value;
+    var body_en = document.getElementById("author_bio_en").value;
+
+    document.querySelector(".note-editable")[0].innerHTML = body_az;
+    document.querySelector(".note-editable")[1].innerHTML = body_en;  
   }    
 }
 </script>

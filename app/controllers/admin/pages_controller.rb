@@ -49,7 +49,7 @@ module Admin
       end
 
       def page_params
-        params.require(:page).permit(:title, :image, :show_in_navbar, :body, :deleted)
+        params.require(:page).permit(:title_az, :title_en, :image, :show_in_navbar, :body_az, :body_en, :deleted)
       end
   end
 end

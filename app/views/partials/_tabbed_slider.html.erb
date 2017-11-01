@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li class="active"><%= link_to "Proqramlar", category_path(slug: @active_pr.category.slug) %></li>
+          <li class="active"><%= link_to I18n.t(:programmes), category_path(slug: @active_pr.category.slug) %></li>
         </ol>
       </div>
     </div>
@@ -41,7 +41,7 @@
             <h3><%= @active_pr.title %></h3>
             <p>
               <%= strip_tags(@active_pr.body).slice(0, 150) %>...
-              <%= link_to "Ardını oxu", article_path(slug: @active_pr.slug), class: "label label-primary" %>
+              <%= link_to I18n.t(:read_more), article_path(slug: @active_pr.slug), class: "label label-primary" %>
             </p>
           </div>
         </div><!-- End Item -->
@@ -53,7 +53,7 @@
               <h3><%= article.title %></h3>
               <p>
                 <%= strip_tags(article.body).slice(0, 150) %>...
-                <%= link_to "Ardını oxu", article_path(slug: article.slug), class: "label label-primary" %>
+                <%= link_to I18n.t(:read_more), article_path(slug: article.slug), class: "label label-primary" %>
               </p>
             </div>
           </div>
